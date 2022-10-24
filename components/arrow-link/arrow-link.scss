@@ -1,0 +1,57 @@
+.arrowLink {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  position: relative;
+  color: $black;
+  overflow: hidden;
+
+  html:not(.is-mobile) &:hover {
+    .arrowLink-arrowLong {
+      transform: translateX(0);
+      transition: transform $simple-transform-ease 0.2s;
+    }
+
+    .arrowLink-text {
+      transform: translateX(0);
+    }
+
+    .arrowLink-arrow {
+      transform: translateX(12px);
+      transition: transform $simple-transform-ease;
+    }
+  }
+
+  path {
+    fill: $black;
+  }
+
+  &-arrowLong {
+    display: block;
+    position: relative;
+    width: 38px;
+    height: auto;
+    transform: translateX(-38px);
+    transition: transform $simple-transform-ease;
+  }
+
+  &-text {
+    @include typo-rwd(body);
+    display: block;
+    position: relative;
+    margin: 0 8px;
+    transform: translateX(-46px);
+    transition: transform $simple-transform-ease 0.1s;
+  }
+
+  &-arrow {
+    display: block;
+    position: relative;
+    width: 12px;
+    height: auto;
+    transform: translateX(-46px);
+    transition: transform $simple-transform-ease 0.2s;
+  }
+}

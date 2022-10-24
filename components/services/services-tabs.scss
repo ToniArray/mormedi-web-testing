@@ -1,0 +1,100 @@
+.servicesTabs {
+  $self: &;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  position: relative;
+
+  &-buttons {
+    display: block;
+    position: relative;
+    width: 255px;
+    height: auto;
+  }
+
+  &-button {
+    display: block;
+    position: relative;
+    font-size: 20px;
+    text-align: left;
+    color: $white;
+    transition: color $simple-fade;
+
+    &.is-active {
+      color: $purple;
+    }
+
+    & + #{$self}-button {
+      margin-top: 32px;
+    }
+  }
+
+  &-descriptions {
+    flex: 1;
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    color: $white;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: opacity $simple-fade;
+
+    &.is-changing {
+      opacity: 0;
+    }
+  }
+
+  &-description {
+    display: none;
+    position: relative;
+
+    p {
+      display: block;
+      position: relative;
+      font-size: 32px;
+      line-height: 48px;
+      font-weight: 400;
+    }
+
+    ul {
+      display: block;
+      position: relative;
+      margin-top: 56px;
+    }
+
+    li {
+      display: block;
+      position: relative;
+      padding-left: 20px;
+      width: auto;
+      line-height: 40px;
+      box-sizing: border-box;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        border: 1px solid $white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transform: translateY(-50%);
+      }
+    }
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  @include mq(lg) {
+    &-descriptions {
+      padding-left: 125px;
+    }
+  }
+}

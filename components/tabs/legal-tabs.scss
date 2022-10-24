@@ -1,0 +1,71 @@
+.legalTabs {
+  display: block;
+  position: relative;
+
+  &-buttons {
+    display: block;
+    position: relative;
+  }
+
+  &-button {
+    @include typo-rwd(headline-small);
+    display: block;
+    position: relative;
+    color: rgba($black, 0.2);
+    transition: color $simple-fade;
+
+    &.is-active {
+      color: $black;
+    }
+
+    & + .legalTabs-button {
+      margin-top: 16px;
+    }
+  }
+
+  &-content {
+    display: none;
+    position: relative;
+    margin-top: 32px;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  @include mq(md) {
+    .sectionWrapper {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+
+    &-buttons {
+      position: sticky;
+      top: 92px;
+    }
+
+    &-button {
+      white-space: nowrap;
+    }
+
+    &-content {
+      margin-top: 0;
+      margin-left: 32px;
+    }
+  }
+
+  @include mq(md) {
+    &-buttons {
+      top: 104px;
+    }
+  }
+
+  @include mq(lg) {
+    &-content {
+      margin-left: 180px;
+    }
+  }
+}

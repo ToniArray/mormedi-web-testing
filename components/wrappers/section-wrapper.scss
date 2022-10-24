@@ -1,0 +1,27 @@
+.sectionWrapper {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 32px;
+  max-width: $layout-maxWidth;
+
+  &.is-small {
+    max-width: $layout-maxWidth-small;
+  }
+
+  @include mq(sm) {
+    padding: 0 48px;
+  }
+
+  @include mq(lg) {
+    padding: 0 96px;
+
+    &.is-large {
+      padding: 0 48px;
+    }
+  }
+
+  @include mq(xl) {
+    padding: 0 128px;
+  }
+}

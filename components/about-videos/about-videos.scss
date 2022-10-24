@@ -1,0 +1,77 @@
+.aboutVideos {
+  display: block;
+  position: relative;
+  margin-top: 56px;
+
+  &-block,
+  &-videoWrapper,
+  &-video {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  &-videoWrapper {
+    cursor: pointer;
+  }
+
+  &-block {
+    &.is-playing svg {
+      opacity: 0;
+    }
+
+    & + .aboutVideos-block {
+      margin-top: 32px;
+    }
+  }
+
+  &-videoWrapper svg {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-50%);
+    transition: opacity $simple-fade;
+  }
+
+  &-videoPerson {
+    display: block;
+    position: relative;
+    margin-top: 24px;
+    // Needs refactorize text
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  &-videoTitle {
+    display: block;
+    position: relative;
+    @include typo-rwd(headline-small);
+    margin-top: 8px;
+  }
+
+  @include mq(md) {
+    .sectionWrapper {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+    }
+
+    &-block {
+      margin-top: 200px;
+      width: 33.33%;
+
+      & + .aboutVideos-block {
+        margin-top: 0;
+        margin-left: 8.33%;
+      }
+    }
+  }
+}

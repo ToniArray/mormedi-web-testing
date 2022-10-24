@@ -1,0 +1,79 @@
+.user {
+  display: flex;
+  align-items: flex-start;
+
+  & + & {
+    margin-top: 24px;
+  }
+
+  &-avatar {
+    position: relative;
+    min-width: 72px;
+    max-width: 72px;
+    margin-right: 18px;
+
+    &-icon {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 22px;
+      height: auto;
+    }
+  }
+
+  &-avatar-wrapper {
+    display: block;
+    position: relative;
+    width: 72px;
+    height: 72px;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  &-data {
+    padding-top: 8px;
+  }
+
+  &-name {
+    margin-bottom: 4px;
+    font-family: $sailec-bold;
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  &-role {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  @include mq(sm) {
+    &-avatar {
+      min-width: 40px;
+      max-width: 40px;
+      margin-right: 14px;
+
+      &-icon {
+        width: 12px;
+      }
+    }
+
+    &-avatar-wrapper {
+      width: 40px;
+      height: 40px;
+    }
+
+    &-data {
+      padding-top: 0;
+    }
+
+    &-name {
+      font-size: 0.75rem;
+      line-height: 1rem;
+    }
+
+    &-role {
+      font-size: 0.625rem;
+      line-height: 0.875rem;
+    }
+  }
+}

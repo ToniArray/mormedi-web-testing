@@ -1,0 +1,87 @@
+.arrowLinkBig {
+  $self: &;
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  position: relative;
+  color: $black;
+
+  html:not(.is-mobile) &:hover {
+    #{$self}-arrow {
+      animation-name: arrowBig;
+      animation-duration: $simple-fade * 1.5;
+      animation-timing-function: $simple-fade-bezier;
+      animation-fill-mode: forwards;
+    }
+
+    #{$self}-text {
+      animation-name: demo;
+      animation-duration: $simple-fade * 1.5;
+      animation-delay: $simple-fade;
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation-fill-mode: forwards;
+    }
+  }
+
+  path {
+    fill: $black;
+  }
+
+  &-arrowContainer {
+    display: block;
+    position: relative;
+    width: 34px;
+    height: auto;
+    text-align: center;
+    overflow: hidden;
+    transform: translateY(-4px);
+  }
+
+  &-arrow {
+    display: block;
+    position: relative;
+    width: 26px;
+    height: auto;
+  }
+
+  &-text {
+    display: block;
+    position: relative;
+    // Needs refactorize text
+    font-family: $sailec-light;
+    font-size: 2.5rem;
+    font-weight: $light;
+    line-height: 1;
+  }
+}
+
+@keyframes arrowBig {
+  0% {
+    transform: translateX(0);
+  }
+  49% {
+    transform: translateX(calc(100% + 10px));
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes demo {
+  0% {
+    transform: translateX(0);
+  }
+  49% {
+    transform: translateX(12px);
+  }
+  50% {
+    transform: translateX(12px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

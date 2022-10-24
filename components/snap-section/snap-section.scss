@@ -1,0 +1,12 @@
+.snapSection {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: $black;
+  scroll-snap-align: start;
+
+  &.is-end {
+    scroll-snap-align: end;
+  }
+}

@@ -1,0 +1,153 @@
+// ------------------------------------
+// $BASE
+// ------------------------------------
+
+// Global
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-base;
+  color: $black;
+  background-color: $white;
+}
+
+body {
+  @include typo-rwd(body);
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  background-color: $white;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Content
+iframe {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+
+  & > * {
+    pointer-events: none;
+  }
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+
+  & > * {
+    pointer-events: none;
+  }
+}
+
+select {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.postIframe-wrapper {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 66vh;
+  height: calc(var(--vh, 0.1vh) * 66);
+
+  & + .footer {
+    display: none;
+  }
+
+  .postIframe {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  @include mq(sm) {
+    height: 75vh;
+    height: calc(var(--vh, 0.1vh) * 75);
+  }
+
+  @include mq(lg) {
+    height: 100vh;
+    height: calc(var(--vh, 0.1vh) * 100);
+
+    &::after {
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.95) 33%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+  }
+}

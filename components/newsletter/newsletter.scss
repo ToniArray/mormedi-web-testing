@@ -1,0 +1,100 @@
+.newsletter {
+  display: block;
+  position: fixed;
+  padding: 24px 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: $white;
+  background-color: $black;
+  box-sizing: border-box;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity $simple-fade, transform $simple-fade-ease;
+  z-index: $index-modal;
+
+  &.is-hidden {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  .sectionWrapper {
+    margin-left: -16px;
+    width: calc(100% + 32px);
+  }
+
+  &-title {
+    @include typo-rwd(field);
+    display: block;
+    position: relative;
+  }
+
+  .required.email {
+    @include typo-rwd(field);
+    margin-top: 8px;
+    padding: 4px 0px;
+    width: 100%;
+    width: 320px;
+    color: $white;
+    background-color: $black !important;
+    border: none;
+    border-bottom: 1px solid $gray-40;
+    outline: none;
+  }
+
+  .buttonBorder {
+    margin-top: 24px;
+    padding: 0;
+  }
+
+  .buttonBorder .button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    padding: 0 25px;
+    padding-right: 50px;
+    height: 100%;
+    background-color: transparent;
+    box-sizing: border-box;
+  }
+
+  .buttonBorder-line rect {
+    stroke: $white;
+  }
+
+  .buttonBorder-arrow {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+
+    path {
+      fill: $white;
+    }
+  }
+
+  @include mq(sm) {
+    .sectionWrapper {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+  @include mq(md) {
+    padding: 32px 0;
+    #mc_embed_signup_scroll {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #mce-responses {
+      position: absolute;
+    }
+
+    .required.email,
+    .buttonBorder {
+      margin-top: 0;
+    }
+  }
+}

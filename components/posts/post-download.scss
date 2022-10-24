@@ -1,0 +1,95 @@
+.postDownload {
+  display: block;
+  position: relative;
+  margin: 104px 0;
+  padding: 48px 0;
+  background-color: $black;
+  box-sizing: border-box;
+
+  &-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  &-info {
+    display: block;
+    position: relative;
+    margin-top: 56px;
+  }
+
+  &-tag {
+    @include typo-rwd(caption);
+    color: $white;
+  }
+
+  &-title {
+    @include typo-rwd(item-title);
+    display: block;
+    position: relative;
+    margin-top: 32px;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    color: $white;
+  }
+
+  .buttonBorder {
+    margin-top: 32px;
+    font-weight: $bold;
+    color: $white;
+
+    &-line rect {
+      stroke: $white;
+      stroke-width: 2;
+    }
+
+    path {
+      fill: $white;
+    }
+  }
+
+  @include mq(md) {
+    .sectionWrapper {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row-reverse;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+    }
+
+    &-image {
+      margin-left: 48px;
+      width: calc(50% - 24px);
+    }
+
+    &-info {
+      margin-top: 0;
+      width: calc(50% - 24px);
+    }
+
+    .buttonBorder {
+      margin-top: 40px;
+    }
+  }
+
+  @include mq(xl) {
+    padding: 120px 0;
+
+    &-image {
+      margin-left: 120px;
+      width: calc(100% - 488px);
+    }
+
+    &-info {
+      margin-top: 0;
+      width: 100%;
+      max-width: 368px;
+    }
+
+    &-title {
+      font-size: 3.5rem;
+      line-height: 4rem;
+    }
+  }
+}

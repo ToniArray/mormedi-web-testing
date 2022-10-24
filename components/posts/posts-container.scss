@@ -1,0 +1,28 @@
+.postsContainer {
+  display: block;
+  position: relative;
+
+  @include mq(md) {
+    .postCover {
+      margin-bottom: 80px;
+    }
+
+    .sectionWrapper {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  @include mq(xl) {
+    &.has-works .postCover {
+      max-width: calc(45% - 110px);
+
+      &:nth-child(2n) {
+        max-width: calc(55% - 110px);
+      }
+    }
+  }
+}

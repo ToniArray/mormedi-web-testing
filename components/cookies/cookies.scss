@@ -1,0 +1,42 @@
+.cookies {
+  display: block;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  color: $white;
+  background-color: $black;
+  box-sizing: border-box;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity $simple-fade, transform $simple-fade-ease;
+  z-index: $index-cookies;
+
+  &.is-hidden {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  &-text {
+    @include typo-rwd(caption);
+  }
+
+  .buttonBorder {
+    @include typo-rwd(caption);
+    margin-top: 24px;
+
+    svg {
+      &:last-child {
+        display: none;
+      }
+
+      rect {
+        stroke: $white;
+      }
+    }
+  }
+
+  @include mq(sm) {
+    max-width: 320px;
+  }
+}

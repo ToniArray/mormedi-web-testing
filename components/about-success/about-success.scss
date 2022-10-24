@@ -1,0 +1,131 @@
+.aboutSuccess {
+  $self: &;
+  display: block;
+  position: relative;
+  margin-top: 80px;
+  padding: 120px 0 72px 0;
+  color: $white;
+  background-color: $black;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &-title {
+    @include typo-rwd(headline);
+  }
+
+  &-list {
+    display: block;
+    position: relative;
+    margin-top: 56px;
+    margin-bottom: -32px;
+
+    li {
+      display: block;
+      position: relative;
+      margin-bottom: 32px;
+      padding-left: 88px;
+      box-sizing: border-box;
+    }
+  }
+
+  &-listImage {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    height: auto;
+  }
+
+  &-listTitle {
+    @include typo-rwd(headline-small);
+    display: block;
+    position: relative;
+  }
+
+  &-listDescription {
+    max-width: 540px;
+    margin-top: 16px;
+  }
+
+  .carousel {
+    margin-top: 96px;
+  }
+
+  .splide__list {
+    align-items: flex-start;
+  }
+
+  &-person {
+    display: block;
+    position: relative;
+    text-align: left;
+    max-width: 254px;
+  }
+
+  &-personImage {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  &-personRol {
+    display: block;
+    position: relative;
+    margin-top: 16px;
+    text-align: left;
+    // Needs refactorize text
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  &-personName {
+    @include typo-rwd(headline-small);
+    display: block;
+    position: relative;
+    margin-top: 8px;
+    text-align: left;
+  }
+
+  @include mq(sm) {
+    margin-top: 224px;
+    padding: 120px 0;
+
+    .carousel {
+      margin-top: 124px;
+    }
+  }
+
+  @include mq(md) {
+    &-list {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: -64px;
+
+      li {
+        margin-bottom: 64px;
+        padding-left: 64px;
+        width: calc(50% - 16px);
+      }
+    }
+
+    &-listImage {
+      width: 40px;
+    }
+
+    &-person {
+      max-width: 254px;
+    }
+  }
+
+  @include mq(lg) {
+    &-list li {
+      width: calc(50% - 64px);
+    }
+  }
+}

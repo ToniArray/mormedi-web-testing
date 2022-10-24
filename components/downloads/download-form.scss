@@ -1,0 +1,45 @@
+.downloadForm {
+  display: block;
+  position: relative;
+  margin-top: -520px;
+  box-sizing: border-box;
+
+  .buttonBorder {
+    margin-top: 64px;
+  }
+
+  &-overlay {
+    display: block;
+    position: relative;
+    padding: 160px 0;
+    text-align: center;
+    background: linear-gradient(0deg, #ffffff 55%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  &-overlayText {
+    @include typo-rwd(post-body);
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 296px;
+  }
+
+  @include mq(sm) {
+    &-overlayText {
+      max-width: 448px;
+    }
+  }
+
+  @include mq(sm) {
+    margin-top: -570px;
+  }
+
+  @include mq(lg) {
+    padding: 0 0 0 200px;
+  }
+
+  @include mq(xl) {
+    padding: 0;
+    margin-left: calc(100% - 988px);
+  }
+}

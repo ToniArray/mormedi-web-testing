@@ -1,0 +1,83 @@
+.downloadCover {
+  display: block;
+  position: relative;
+  margin-top: 24px;
+
+  & + .downloadCover {
+    margin-top: 64px;
+  }
+
+  .sectionWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &-tag {
+    @include typo-rwd(caption);
+    display: block;
+    position: relative;
+    margin-top: 24px;
+    color: $purple;
+  }
+
+  &-title {
+    @include typo-rwd(headline);
+    display: block;
+    position: relative;
+    margin-top: 24px;
+  }
+
+  .buttonBorder {
+    margin-top: 24px;
+  }
+
+  &-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    img {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: auto;
+      transform: translateY(15%) scale(1.15);
+      transform-origin: bottom;
+    }
+  }
+
+  @include mq(md) {
+    & + .downloadCover {
+      margin-top: 120px;
+    }
+
+    .sectionWrapper {
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+
+    &-info {
+      max-width: 254px;
+      margin-right: 32px;
+    }
+
+    &-tag {
+      margin-top: 0;
+    }
+  }
+
+  @include mq(lg) {
+    &-info {
+      margin-right: 120px;
+    }
+  }
+
+  @include mq(xxl) {
+    & + .downloadCover {
+      margin-top: 240px;
+    }
+  }
+}

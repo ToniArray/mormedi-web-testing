@@ -1,0 +1,49 @@
+.contactTabs {
+  display: block;
+  position: relative;
+  min-width: 100%;
+
+  &-buttons {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 667px;
+  }
+
+  &-button {
+    @include typo-rwd(headline-small);
+    display: block;
+    position: relative;
+    padding-right: 38px;
+    min-width: 33.33%;
+    color: rgba($black, 0.2);
+    text-align: left;
+    box-sizing: border-box;
+    transition: color $simple-fade;
+
+    &.is-active {
+      color: $black;
+    }
+  }
+
+  &-contentContainer {
+    display: block;
+    position: relative;
+  }
+
+  &-content {
+    display: none;
+    position: relative;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  @include mq(md) {
+    min-width: calc(100% - 230px);
+  }
+}

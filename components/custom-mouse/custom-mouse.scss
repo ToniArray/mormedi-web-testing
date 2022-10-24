@@ -1,0 +1,75 @@
+.mouse {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+  opacity: 1;
+  pointer-events: none;
+  transform: translateX(0) translateY(0);
+  transition: opacity $simple-fade,
+    transform 0.33s cubic-bezier(0, 0.33, 0.66, 1);
+  @media not all and (min-resolution: 0.001dpcm) {
+    transition: opacity $simple-fade;
+  }
+  will-change: transform;
+  z-index: $index-mouse;
+
+  html.is-mobile & {
+    display: none;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: $purple;
+    border: 3px solid $purple;
+    border-radius: 100%;
+    box-sizing: border-box;
+    transform: scale(0.16);
+    transition: background-color $simple-transform-ease,
+      transform $simple-transform-ease;
+  }
+
+  &.is-hover::before {
+    background-color: transparent;
+    transform: scale(0.66);
+  }
+
+  &.is-drag {
+    &::before {
+      background-color: transparent;
+      border: 2px solid $purple;
+      transform: scale(1);
+    }
+
+    svg {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(calc(-50% - 16px)) translateY(-50%) rotate(90deg);
+    opacity: 0;
+    transition: opacity $simple-transform-ease;
+
+    &:last-child {
+      transform: translateX(calc(-50% + 16px)) translateY(-50%) rotate(-90deg);
+    }
+
+    path {
+      fill: $purple;
+    }
+  }
+}

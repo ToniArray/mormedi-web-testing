@@ -1,0 +1,114 @@
+.aboutExperts {
+  display: block;
+  position: relative;
+  margin-top: 120px;
+
+  &-title {
+    @include typo-rwd(headline);
+  }
+
+  &-description {
+    @include typo-rwd(body);
+    margin-top: 32px;
+  }
+
+  &-info {
+    display: block;
+    position: relative;
+  }
+
+  &-list {
+    display: block;
+    position: relative;
+    margin-top: 48px;
+  }
+
+  &-list li {
+    display: block;
+    position: relative;
+
+    & + li {
+      margin-top: 32px;
+    }
+  }
+
+  &-modalButton {
+    text-align: left;
+  }
+
+  &-personImage {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  &-personRol {
+    display: block;
+    position: relative;
+    margin-top: 24px;
+    // Needs refactorize text
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  &-personName {
+    display: block;
+    position: relative;
+    margin-top: 8px;
+    @include typo-rwd(headline-small);
+  }
+
+  @include mq(sm) {
+    margin-top: 160px;
+
+    &-list {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 64px;
+      margin-bottom: -56px;
+
+      li {
+        margin-bottom: 56px;
+        width: calc(50% - 16px);
+      }
+
+      li + li {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @include mq(md) {
+    &-list {
+      margin-left: 33.33%;
+      width: 66.66%;
+    }
+  }
+
+  @include mq(lg) {
+    .sectionWrapper {
+      display: flex;
+    }
+
+    &-info {
+      padding-right: 16.66%;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    &-list {
+      margin-top: 0;
+      margin-left: 0;
+      width: 50%;
+
+      li {
+        width: calc(50% - 32px);
+      }
+    }
+  }
+}

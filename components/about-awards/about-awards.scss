@@ -1,0 +1,92 @@
+.aboutAwards {
+    display: block;
+    position: relative;
+    margin-top: 184px;
+  
+    &-title {
+      @include typo-rwd(headline);
+      display: block;
+      position: relative;
+      color: $black;
+    }
+  
+    &-list {
+      display: block;
+      position: relative;
+      margin-top: 64px;
+  
+      li {
+        display: block;
+        position: relative;
+        padding-right: 56px;
+        box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(50%);
+      }
+  
+      li + li {
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: 1px solid rgba($black, 0.1);
+        box-sizing: border-box;
+  
+        .aboutAwards-listImage {
+          top: 40px;
+        }
+      }
+    }
+  
+    &-listTitle {
+      @include typo-rwd(headline-small);
+      display: block;
+      position: relative;
+      color: $black;
+  
+      & + .aboutAwards-listItem {
+        margin-top: 24px;
+      }
+    }
+  
+    &-listItem {
+      @include typo-rwd(body);
+      display: block;
+      position: relative;
+    }
+  
+    &-listImage {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 32px;
+      height: auto;
+    }
+  
+    @include mq(sm) {
+      margin-top: 240px;
+  
+      &-list li {
+        padding-right: 80px;
+      }
+  
+      &-listImage {
+        width: 40px;
+      }
+    }
+  
+    @include mq(lg) {
+      .sectionWrapper {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+  
+      &-list {
+        margin-top: 0;
+        width: 50%;
+        max-width: 635px;
+      }
+    }
+  }

@@ -1,0 +1,121 @@
+.postCover {
+  display: block;
+  position: relative;
+
+  &.is-full {
+    .postCover-title {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+
+    .postCover-intro {
+      display: none;
+    }
+  }
+
+  & + .postCover {
+    margin-top: 96px;
+  }
+
+  &-image,
+  &-image img {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  &-info {
+    display: block;
+    position: relative;
+    margin-top: 32px;
+    width: 100%;
+    color: $black;
+  }
+
+  &-title {
+    @include typo-rwd(item-title);
+    display: block;
+    position: relative;
+  }
+
+  &-tags {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    margin-top: 16px;
+    margin-left: -2px;
+    width: calc(100% + 4px);
+
+    li {
+      display: block;
+      position: relative;
+      margin: 0 2px;
+    }
+
+    a {
+      @include typo-rwd(caption);
+      color: $purple;
+    }
+  }
+
+  &-intro {
+    @include typo-rwd(post-body);
+    display: block;
+    position: relative;
+    margin-top: 16px;
+    color: $black;
+  }
+
+  @include mq(md) {
+    margin-bottom: 160px;
+    max-width: calc(50% - 24px);
+
+    &.is-full {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      margin-bottom: 160px;
+      max-width: 100%;
+
+      .postCover-info {
+        margin-top: 0;
+        margin-left: 48px;
+      }
+    }
+
+    & + .postCover {
+      margin-top: 0;
+    }
+
+    &-info {
+      margin-top: 48px;
+    }
+
+    &-tags,
+    &-intro {
+      margin-top: 24px;
+    }
+  }
+
+  @include mq(xl) {
+    margin-bottom: 320px;
+    max-width: calc(50% - 110px);
+
+    &.is-full {
+      .postCover-info {
+        margin-left: 120px;
+      }
+
+      .postCover-title {
+        font-size: 3.5rem;
+        line-height: 4rem;
+      }
+    }
+  }
+}

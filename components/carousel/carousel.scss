@@ -1,0 +1,22 @@
+.carousel {
+    position: relative;
+  
+    .splide__track {
+      overflow: visible;
+      pointer-events: none;
+    }
+  
+    .splide__slide {
+      cursor: grab;
+      pointer-events: all;
+  
+      & > * {
+        opacity: 0;
+        transform: translateY(25%);
+      }
+  
+      & * {
+        cursor: grab;
+      }
+    }
+  }

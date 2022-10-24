@@ -1,0 +1,159 @@
+.clientsResume {
+  display: block;
+  position: relative;
+  padding-top: 120px;
+  background-color: $white;
+  box-sizing: border-box;
+
+  .sectionWrapper:last-child {
+    overflow: hidden;
+    text-align: right;
+  }
+
+  &-title {
+    @include typo-rwd(headline);
+    display: block;
+    position: relative;
+    color: $black;
+  }
+
+  &-list {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 56px;
+    margin-bottom: -44px;
+
+    li {
+      display: block;
+      position: relative;
+      margin-bottom: 100px;
+      width: calc(50% - 8px);
+      height: auto;
+      text-align: center;
+
+      html:not(.is-mobile) &:hover .clientsResume-clientBg {
+        opacity: 1;
+        transition: opacity $simple-fade 0.2s,
+          transform 0.5s cubic-bezier(0, 0.33, 0.66, 1);
+      }
+
+      & * {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &-clientLogoWrapper {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+
+    img {
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      top: 50%;
+      width: auto;
+      max-width: 120px;
+      height: auto;
+      max-height: 40px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-clientBg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) scale(1.1);
+    transition: opacity $simple-fade,
+      transform 0.5s cubic-bezier(0, 0.33, 0.66, 1);
+  }
+
+  &-clientDescription {
+    @include typo-rwd(body);
+    display: none;
+    position: relative;
+    margin-top: 32px;
+    max-width: 280px;
+    color: $black;
+  }
+
+  &-clientLogo {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: auto;
+    max-height: 100%;
+  }
+
+  .arrowLink {
+    transform: translateX(44px);
+  }
+
+  @media (min-width: 375px) {
+    &-list li {
+      width: calc(50% - 16px);
+    }
+
+    &-clientLogoWrapper {
+      width: 160px;
+
+      img {
+        max-width: 160px;
+      }
+    }
+  }
+
+  @include mq(md) {
+    &-list {
+      margin-top: 80px;
+      margin-bottom: 0;
+    }
+
+    &-list li {
+      margin-bottom: 64px;
+      height: auto;
+      text-align: left;
+    }
+
+    &-clientLogoWrapper {
+      margin: inherit;
+      text-align: left;
+
+      img {
+        margin: inherit;
+      }
+    }
+
+    &-clientBg,
+    &-clientDescription {
+      display: block;
+    }
+
+    &-clientLogo {
+      margin: 0;
+      height: 28px;
+    }
+  }
+
+  @include mq(lg) {
+    &-list li {
+      width: calc(33.33% - 64px);
+    }
+  }
+
+  @include mq(xl) {
+    padding-top: 160px;
+  }
+}

@@ -1,0 +1,86 @@
+.servicesDropdown {
+  $self: &;
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  color: $white;
+
+  & + #{$self} {
+    margin-top: 32px;
+  }
+
+  &.is-open {
+    #{$self}-button {
+      color: $purple;
+    }
+
+    #{$self}-description {
+      opacity: 1;
+    }
+  }
+
+  &:not(.is-open) {
+    #{$self}-container {
+      height: 0 !important;
+    }
+  }
+
+  &-button {
+    font-size: 20px;
+    color: $white;
+    transition: color $simple-fade;
+  }
+
+  &-container {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: height $simple-fade-ease;
+  }
+
+  &-description {
+    display: block;
+    position: relative;
+    margin-top: 16px;
+    opacity: 0;
+    transition: opacity $simple-fade;
+
+    p {
+      display: block;
+      position: relative;
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 400;
+    }
+
+    ul {
+      display: block;
+      position: relative;
+      margin-top: 8px;
+    }
+
+    li {
+      display: block;
+      position: relative;
+      padding-left: 20px;
+      width: auto;
+      line-height: 40px;
+      box-sizing: border-box;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        border: 1px solid $white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

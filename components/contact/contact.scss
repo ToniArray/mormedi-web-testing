@@ -1,0 +1,105 @@
+.contact {
+  &-wrapper {
+    display: block;
+    position: relative;
+    margin-top: 40px;
+
+    .buttonBorder {
+      margin-top: 24px;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  &-form {
+    flex: 1;
+    margin-top: 24px;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &-fieldset {
+    flex: 1;
+    border: none;
+    padding: 0;
+  }
+
+  &-sidebar {
+    padding-top: 60px;
+    &-title {
+      font-family: $sailec-bold;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+
+    &-link {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  &-divider {
+    margin: 40px 0;
+    border-top: 1px solid #e7e7e7;
+  }
+
+  @include mq(sm) {
+    &-form {
+      &-content {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 520px;
+      }
+    }
+
+    &-fieldset {
+      flex: none;
+      min-width: 200px;
+    }
+  }
+
+  @include mq(md) {
+    &-wrapper .sectionWrapper {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      position: relative;
+    }
+
+    &-content {
+      flex-direction: row;
+    }
+
+    &-form-content {
+      flex-direction: column;
+    }
+
+    &-sidebar {
+      max-width: 230px;
+      padding-top: 0;
+      padding-left: 40px;
+      border-left: 1px solid #e7e7e7;
+    }
+
+    &-divider {
+      margin: 32px 0;
+      border-top: 1px solid #e7e7e7;
+    }
+  }
+
+  @media (min-width: 920px) {
+    &-form-content {
+      flex-direction: row;
+    }
+  }
+}

@@ -1,0 +1,217 @@
+.aboutModal {
+    display: block;
+    position: fixed;
+    padding: 56px 0 48px 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: $white;
+    box-sizing: border-box;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $long-fade;
+    z-index: $index-modal;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  
+    &.is-open {
+      opacity: 1;
+      pointer-events: all;
+  
+      .sectionWrapper {
+        opacity: 1;
+      }
+    }
+  
+    &.is-changing .sectionWrapper {
+      opacity: 0;
+    }
+  
+    .sectionWrapper {
+      opacity: 0;
+      transition: opacity $long-fade $long-fade;
+    }
+  
+    &-close {
+      display: block;
+      position: relative;
+      left: 100%;
+      transform: translateX(-50%);
+  
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  
+    &-info {
+      display: block;
+      position: relative;
+      margin-top: 56px;
+    }
+  
+    &-wrapper {
+      display: block;
+      position: relative;
+    }
+  
+    &-name {
+      @include typo-rwd(featured-link);
+      display: block;
+      position: relative;
+      margin-bottom: 24px;
+      max-width: 75%;
+    }
+  
+    &-rol,
+    &-place {
+      @include typo-rwd(caption);
+      display: block;
+      position: relative;
+    }
+  
+    &-wrapper:last-child {
+      margin-top: 56px;
+  
+      img {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+  
+      p {
+        @include typo-rwd(post-body);
+        display: block;
+        position: relative;
+        margin-top: 24px;
+      }
+  
+      a {
+        @include typo-rwd(post-body);
+        display: block;
+        margin-top: 40px;
+  
+        span {
+          display: inline-flex;
+          align-items: flex-start;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          position: relative;
+          color: $black;
+          text-decoration: underline;
+        }
+  
+        svg {
+          display: block;
+          position: relative;
+          margin-top: 2px;
+          margin-left: 4px;
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  
+    &-controls {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      position: relative;
+      margin-top: 56px;
+    }
+  
+    &-arrow {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+  
+      &.is-prev svg {
+        transform: rotate(-180deg);
+      }
+    }
+  
+    @include mq(md) {
+      padding: 120px 0 48px 0;
+  
+      &-wrapper:last-child,
+      &-controls {
+        width: 50%;
+        transform: translateX(100%);
+      }
+  
+      &-close svg {
+        width: 28px;
+        height: 28px;
+      }
+  
+      &-arrow svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  
+    @include mq(xl) {
+      padding: 0;
+      overflow: hidden;
+      overflow-y: hidden;
+  
+      .sectionWrapper {
+        padding-top: 120px;
+        padding-bottom: 48px;
+        height: 100%;
+        overflow-y: auto;
+      }
+  
+      &-info {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+  
+      &-name {
+        font-size: 4.75rem;
+      }
+  
+      &-wrapper {
+        width: calc(50% - 16px);
+      }
+  
+      &-wrapper:first-child {
+        position: sticky;
+        top: 92px;
+      }
+  
+      &-wrapper:last-child {
+        margin-top: 0;
+        transform: none;
+  
+        p,
+        a {
+          margin-top: 48px;
+        }
+      }
+  
+      &-name {
+        max-width: 100%;
+      }
+    }
+  
+    @include mq(xl) {
+      &-name {
+        font-size: 5.5rem;
+      }
+    }
+  }

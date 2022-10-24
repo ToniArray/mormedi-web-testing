@@ -1,0 +1,135 @@
+.field {
+  position: relative;
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 4px 0px;
+    @include typo-rwd(field);
+    color: $black;
+    border: none;
+    border-bottom: 1px solid $gray-40;
+    outline: none;
+
+    &:focus {
+      &::placeholder {
+        opacity: 0.2;
+      }
+    }
+
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      transform: scale(0.625) translateY(-30px);
+    }
+
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 100px $white inset;
+    }
+
+    &::placeholder {
+      color: $black;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  textarea {
+    margin-bottom: 24px;
+  }
+
+  select {
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M16.76 9l-4.78 4.58L7.197 9l-1.469 1.41 6.25 6 6.25-6L16.76 9z' fill='%23000'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='%23fff' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
+    -webkit-appearance: none;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  label {
+    position: absolute;
+    top: 4px;
+    left: 0px;
+    padding: 0px;
+    color: $black;
+    @include typo-rwd(field);
+    transition: transform 0.2s;
+    transform-origin: 0% 0%;
+    background: none;
+    pointer-events: none;
+  }
+
+  .error {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    font-size: 8px;
+    color: $red;
+  }
+
+  &.is-required {
+    label:after {
+      content: '*';
+    }
+  }
+
+  &.has-error {
+    label {
+      color: $red;
+    }
+  }
+
+  .dropButton {
+    display: block;
+    position: relative;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    width: 100%;
+    height: 52px;
+    text-align: center;
+    border: 1px dashed #c2c2c2;
+    box-sizing: border-box;
+
+    & + label {
+      top: -32px;
+    }
+
+    input,
+    label {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-bottom: 0;
+      transform: none !important;
+    }
+
+    label {
+      font-size: 0.625rem;
+      line-height: 52px;
+    }
+  }
+
+  @include mq(sm) {
+    input,
+    select,
+    textarea,
+    .dropButton {
+      max-width: 200px;
+    }
+  }
+}
+
+.label {
+  display: block;
+  margin-bottom: 52px;
+  font-size: 12px;
+}

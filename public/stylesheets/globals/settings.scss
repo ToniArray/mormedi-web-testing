@@ -1,0 +1,54 @@
+// ------------------------------------
+// $VARIABLES
+// ------------------------------------
+
+// Colors
+$black: #000000;
+$gray-80: #2b2825;
+$gray-60: #aeaeae;
+$gray-40: #d1d1d1;
+$white: #ffffff;
+$green: #29ed81;
+$purple: #5e62ff;
+$red: #ec4646;
+$yellow: #fdbd29;
+
+// Fonts
+$font-base: 16px;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$heavy: 900;
+
+// Index
+$index-navigation: 10;
+$index-modal: 15;
+$index-cookies: 20;
+$index-mouse: 25;
+$index-overlay: 30;
+$index-loader: 35;
+
+// Layout
+$layout-maxWidth: 2176px;
+$layout-maxWidth-small: 1696px;
+
+// Breakpoints
+$grid-breakpoints: (
+  xs: 0px,
+  sm: 667px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1440px,
+  xxxl: 1920px,
+);
+
+// Transitions
+$simple-fade: 0.4s;
+$simple-fade-bezier: cubic-bezier(0.25, 0, 0.25, 1);
+$simple-fade-ease: $simple-fade $simple-fade-bezier;
+$simple-transform-ease: 0.3s cubic-bezier(0.25, 0, 0.25, 1);
+$long-fade: 0.8s;
+$long-fade-ease: 0.8s cubic-bezier(0.25, 0, 0.25, 1);

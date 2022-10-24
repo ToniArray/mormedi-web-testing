@@ -1,0 +1,26 @@
+.featuredProjects {
+  display: block;
+  position: relative;
+  padding: 120px 0 80px 0;
+  background-color: $black;
+  box-sizing: border-box;
+  z-index: 1;
+
+  &-title {
+    display: block;
+    position: relative;
+    margin-bottom: 72px;
+    // Needs refactorize text
+    @include typo-rwd(headline);
+    font-size: 20px !important;
+    color: $white;
+  }
+
+  @include mq(sm) {
+    padding: 220px 0;
+
+    &-title {
+      margin-bottom: 228px;
+    }
+  }
+}

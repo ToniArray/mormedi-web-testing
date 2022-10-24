@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700&display=swap');
+
+// font-face
+@mixin font-face-modern(
+  $font-family,
+  $font-filename,
+  $font-weight: normal,
+  $font-style: normal,
+  $font-stretch: normal
+) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('../../fonts/#{$font-filename}.woff2') format('woff2'),
+      url('../../fonts/#{$font-filename}.woff') format('woff');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-stretch: $font-stretch;
+  }
+}
+@include font-face-modern('Sailec-Light', 'Sailec-Light', 300);
+@include font-face-modern('Sailec-Medium', 'Sailec-Medium', 500);
+@include font-face-modern('Sailec-Bold', 'Sailec-Bold', 700);
+
+$sailec-light: 'Sailec-Light', sans-serif;
+$sailec-medium: 'Sailec-Medium', sans-serif;
+$sailec-bold: 'Sailec-Bold', sans-serif;
+
+$font-families: (
+  sailec-light: $sailec-light,
+  sailec-medium: $sailec-medium,
+  sailec-bold: $sailec-bold,
+);
+
+$typography: (
+  body: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 1rem,
+        lh: 1.5rem,
+      ),
+    ),
+  ),
+  caption: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 0.75rem,
+        fw: $light,
+        lh: 1.125rem,
+      ),
+      sm: (
+        fz: 1rem,
+        lh: 1.5rem,
+      ),
+    ),
+  ),
+  caption-title: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 0.75rem,
+        fw: $light,
+        lh: 1.125rem,
+      ),
+      sm: (
+        fz: 1.125rem,
+        lh: 1.375rem,
+      ),
+    ),
+  ),
+  claim: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 2rem,
+        fw: $light,
+        lh: 2.25rem,
+      ),
+      sm: (
+        fz: 3.125rem,
+        lh: 3.5rem,
+      ),
+    ),
+  ),
+  featured-link: (
+    format: (
+      xs: (
+        ff: sailec-bold,
+        fz: 2rem,
+        fw: $bold,
+        lh: 2.25rem,
+      ),
+      sm: (
+        fz: 7.5rem,
+        lh: 1,
+      ),
+    ),
+  ),
+  featured-link-big: (
+    format: (
+      xs: (
+        ff: sailec-bold,
+        fz: 2rem,
+        fw: $bold,
+        lh: 2.25rem,
+      ),
+      sm: (
+        fz: 6rem,
+        lh: 1,
+      ),
+      lg: (
+        fz: 7rem,
+      ),
+      xl: (
+        fz: 9.375rem,
+      ),
+    ),
+  ),
+  field: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 1rem,
+        fw: $bold,
+        lh: 2rem,
+      ),
+    ),
+  ),
+  hero: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 2.5rem,
+        fw: $light,
+        lh: 3rem,
+      ),
+      sm: (
+        fz: 5rem,
+        lh: 6rem,
+      ),
+    ),
+  ),
+  heading-big: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 2.5rem,
+        fw: $light,
+        lh: 3rem,
+      ),
+      sm: (
+        fz: 5rem,
+        lh: 6rem,
+      ),
+    ),
+  ),
+  headline: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 1.5rem,
+        fw: $light,
+        lh: 2rem,
+      ),
+      sm: (
+        fz: 2.5rem,
+        lh: 3.5rem,
+      ),
+    ),
+  ),
+  headline-description: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 0.875rem,
+        fw: $light,
+        lh: 1.125rem,
+      ),
+      sm: (
+        fz: 1.125rem,
+        lh: 1.75rem,
+      ),
+    ),
+  ),
+  headline-small: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 1.125rem,
+        fw: $light,
+        lh: 1.375rem,
+      ),
+      sm: (
+        fz: 1.5rem,
+        lh: 2rem,
+      ),
+    ),
+  ),
+  item-title: (
+    format: (
+      xs: (
+        ff: sailec-bold,
+        fz: 1.5rem,
+        fw: $bold,
+        lh: 2rem,
+      ),
+      sm: (
+        fz: 2rem,
+        lh: 2.5rem,
+      ),
+    ),
+  ),
+  post-body: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 1rem,
+        fw: $light,
+        lh: 1.5rem,
+      ),
+      sm: (
+        fz: 1.125rem,
+        lh: 1.75rem,
+      ),
+    ),
+  ),
+  post-heading: (
+    format: (
+      xs: (
+        ff: sailec-bold,
+        fz: 1.5rem,
+        fw: $bold,
+        lh: 2rem,
+      ),
+    ),
+  ),
+  post-title: (
+    format: (
+      xs: (
+        ff: sailec-light,
+        fz: 2rem,
+        fw: $light,
+        lh: 2.125rem,
+      ),
+      sm: (
+        fz: 4.375rem,
+        lh: 4.875rem,
+      ),
+    ),
+  ),
+);

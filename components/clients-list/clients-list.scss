@@ -1,0 +1,60 @@
+.clientsList {
+  display: block;
+  position: relative;
+  margin-top: 96px;
+
+  &-list {
+    display: block;
+    position: relative;
+
+    & + .clientsList-list {
+      margin-top: 56px;
+    }
+  }
+
+  &-title {
+    @include typo-rwd(post-heading);
+    display: block;
+    position: relative;
+    color: $black;
+
+    & + .clientsList-item {
+      margin-top: 24px;
+    }
+  }
+
+  &-item {
+    @include typo-rwd(post-body);
+    display: block;
+    position: relative;
+    color: $black;
+
+    & + .clientsList-item {
+      margin-top: 4px;
+    }
+  }
+
+  @include mq(md) {
+    margin-top: 120px;
+
+    .sectionWrapper {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-top: -80px;
+    }
+
+    &-list {
+      margin-bottom: 80px;
+      padding-right: 24px;
+      width: 33.33%;
+      box-sizing: border-box;
+
+      & + .clientsList-list {
+        margin-top: 0;
+      }
+    }
+  }
+}

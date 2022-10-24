@@ -1,0 +1,104 @@
+.whatWeDo {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  &-languages {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  &-languageSelect {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    color: $gray-60;
+    font-size: 0.875rem;
+
+    select {
+      display: block;
+      position: relative;
+      margin-left: 4px;
+      color: $black;
+    }
+
+    svg {
+      display: block;
+      position: relative;
+      margin-top: -2px;
+      margin-left: 4px;
+    }
+  }
+
+  .carousel {
+    margin-top: 56px;
+  }
+
+  .splide__slide {
+    width: 100%;
+  }
+
+  &-videoWrapper,
+  &-video {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  &-videoWrapper.is-playing svg {
+    opacity: 0;
+  }
+
+  &-videoWrapper svg {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-50%);
+    transition: opacity $simple-fade;
+  }
+
+  &-video {
+    pointer-events: none;
+  }
+
+  &-name {
+    display: block;
+    position: relative;
+    margin-top: 24px;
+    // Needs refactorize text
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  &-rol {
+    display: block;
+    position: relative;
+    @include typo-rwd(headline-small);
+    margin-top: 8px;
+  }
+
+  @include mq(sm) {
+    &-languages {
+      justify-content: flex-end;
+    }
+
+    &-languageSelect + .whatWeDo-languageSelect {
+      margin-left: 72px;
+    }
+
+    .splide__slide {
+      width: auto;
+      max-width: 350px;
+    }
+  }
+}

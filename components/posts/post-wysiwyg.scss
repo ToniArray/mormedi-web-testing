@@ -1,0 +1,666 @@
+.postWysiwyg {
+  display: block;
+  position: relative;
+  padding: 160px 0;
+  box-sizing: border-box;
+
+  &.is-download .postWysiwyg-content img {
+    margin-top: 96px;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  &.is-generic {
+    padding-top: 40px;
+
+    .postWysiwyg-content {
+      margin-top: 0;
+    }
+  }
+
+  &.is-project {
+    padding: 140px 0;
+  }
+
+  &.is-project .postWysiwyg-content {
+    img {
+      margin-left: 32px;
+    }
+
+    img + img {
+      margin-left: -32px;
+    }
+
+    img + img + img {
+      margin-left: 32px;
+    }
+  }
+
+  &-client {
+    display: block;
+    position: relative;
+    margin-bottom: 16px;
+    text-align: right;
+    font-family: $sailec-bold;
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: $bold;
+  }
+
+  &-image {
+    display: block;
+    position: relative;
+    margin-left: -32px;
+    width: calc(100% + 64px);
+    height: auto;
+    overflow: hidden;
+
+    img {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: auto;
+      transform: scale(1.05);
+      transform-origin: top;
+    }
+  }
+
+  &-info {
+    display: block;
+    position: relative;
+  }
+
+  &-tags {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    margin-top: 40px;
+    margin-left: -2px;
+    width: calc(100% + 4px);
+
+    li {
+      display: block;
+      position: relative;
+      margin: 0 2px;
+    }
+
+    a {
+      @include typo-rwd(caption);
+      color: $purple;
+    }
+  }
+
+  &-title {
+    @include typo-rwd(post-title);
+    display: block;
+    position: relative;
+    margin-top: 24px;
+    color: $black;
+  }
+
+  &-author,
+  &-position {
+    @include typo-rwd(caption);
+    display: block;
+    position: relative;
+    color: $gray-60;
+  }
+
+  &-author {
+    margin-top: 40px;
+    font-family: $sailec-bold;
+    font-weight: $bold;
+  }
+
+  &-references {
+    @include typo-rwd(caption);
+    margin-top: 100px;
+    max-width: 264px;
+
+    .postWysiwyg-tags {
+      margin-top: 0;
+    }
+  }
+
+  &-referencesTitle {
+    display: block;
+    position: relative;
+    margin-top: 24px;
+    font-family: $sailec-bold;
+    font-weight: $bold;
+  }
+
+  &-content {
+    margin-top: 100px;
+
+    & + .postWysiwyg-image {
+      margin-top: 96px;
+    }
+  }
+
+  &-content p {
+    @include typo-rwd(post-body);
+    display: block;
+    position: relative;
+    color: $black;
+
+    a {
+      color: $purple;
+    }
+
+    strong {
+      font-family: $sailec-bold;
+      font-weight: $bold;
+    }
+
+    & + p {
+      margin-top: 24px;
+    }
+
+    & + * {
+      margin-top: 96px;
+    }
+  }
+
+  &-content h1,
+  &-content h2,
+  &-content h3,
+  &-content h4,
+  &-content h5,
+  &-content h6 {
+    @include typo-rwd(post-heading);
+    display: block;
+    position: relative;
+    color: $black;
+
+    & + * {
+      margin-top: 32px;
+    }
+  }
+
+  &-content img {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    & + * {
+      margin-top: 96px;
+    }
+
+    & + img {
+      margin-top: 20px;
+    }
+  }
+
+  &-formBlock {
+    display: block;
+    position: relative;
+    margin-top: 160px;
+    padding: 40px 24px;
+    width: 100%;
+    background-color: $purple;
+    box-sizing: border-box;
+  }
+
+  &-formTitle {
+    @include typo-rwd(headline);
+    display: block;
+    position: relative;
+    max-width: 520px;
+    color: $white;
+  }
+
+  &-formIntro {
+    @include typo-rwd(post-body);
+    display: block;
+    position: relative;
+    margin-top: 32px;
+    max-width: 520px;
+    color: $white;
+  }
+
+  &-formBlock .contact-fieldset {
+    display: block;
+    position: relative;
+    margin-top: 64px;
+  }
+
+  .field + .field {
+    margin-top: 56px;
+  }
+
+  input {
+    margin-bottom: 0;
+    color: $white;
+    background-color: transparent;
+  }
+
+  input + label {
+    color: $white;
+  }
+
+  .checkbox {
+    margin-top: 24px;
+
+    & input + label:before {
+      background-color: transparent;
+    }
+
+    & input:focus + label:before {
+      border-color: $white;
+    }
+
+    &:hover label:before {
+      border-color: $white;
+    }
+
+    & input + label:after {
+      background-color: $white;
+    }
+  }
+
+  .buttonBorder {
+    margin-top: 32px;
+    font-weight: $bold;
+    color: $white;
+
+    &-line rect {
+      stroke: $white;
+      stroke-width: 2;
+    }
+
+    path {
+      fill: $white;
+    }
+  }
+
+  &-more {
+    display: block;
+    position: relative;
+    margin-top: 160px;
+  }
+
+  &-quote {
+    margin-top: 56px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include typo-rwd(headline-small);
+      display: block;
+      position: relative;
+      max-width: 234px;
+
+      & + p {
+        margin-top: 32px;
+      }
+    }
+
+    p {
+      @include typo-rwd(caption);
+      display: block;
+      position: relative;
+    }
+  }
+
+  &-moreTitle {
+    @include typo-rwd(caption);
+    display: block;
+    position: relative;
+    margin-bottom: 24px;
+    min-width: 100%;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  &-morePrev,
+  &-moreNext {
+    display: block;
+    position: relative;
+    width: auto;
+  }
+
+  &-morePost {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  &-morePrev {
+    .postWysiwyg-morePost-link svg {
+      transform: rotate(180deg);
+    }
+
+    & + .postWysiwyg-moreNext {
+      margin-top: 72px;
+    }
+  }
+
+  &-moreNext .postWysiwyg-morePost {
+    align-items: flex-end;
+
+    .postWysiwyg-morePost-title {
+      left: 100%;
+      transform: translateX(-100%);
+    }
+  }
+
+  &-morePost-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+  }
+
+  &-morePost-title {
+    @include typo-rwd(post-heading);
+    display: block;
+    position: relative;
+    margin-top: 20px;
+    color: $black;
+    max-width: 206px;
+  }
+
+  &-morePost-link {
+    margin-top: 24px;
+  }
+
+  @include mq(sm) {
+    &.is-project .postWysiwyg-content {
+      img {
+        display: block;
+        margin-left: 48px;
+        width: 100%;
+      }
+      img + img {
+        margin-left: -48px;
+      }
+
+      img + img + img {
+        margin-left: 48px;
+      }
+    }
+
+    &-client {
+      margin-bottom: 56px;
+      font-size: 48px;
+    }
+
+    &-image {
+      margin-left: -48px;
+      width: calc(100% + 96px);
+    }
+
+    &-content p + p {
+      margin-top: 32px;
+    }
+
+    &-content img {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(50% - 12px);
+      height: auto;
+
+      & + img {
+        margin-top: 96px;
+        margin-left: 24px;
+      }
+    }
+
+    &-more {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &-morePrev,
+    &-moreNext {
+      width: 50%;
+    }
+
+    &-morePrev + .postWysiwyg-moreNext {
+      margin-top: 0;
+    }
+  }
+
+  @include mq(md) {
+    padding: 200px 0;
+
+    &.is-generic {
+      padding-top: 112px;
+    }
+
+    &-image {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    &-tags,
+    &-author {
+      margin-top: 80px;
+    }
+
+    &-title {
+      margin-top: 40px;
+    }
+
+    &-content {
+      margin-top: 120px;
+    }
+
+    &-formBlock {
+      padding: 56px 40px;
+      padding-bottom: 84px;
+    }
+
+    &-formIntro {
+      margin-top: 48px;
+    }
+
+    &-formBlock .contact-fieldset {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+
+    .field + .field {
+      margin-top: 0;
+      margin-left: 48px;
+    }
+
+    .buttonBorder {
+      margin-top: 0;
+      margin-left: 48px;
+    }
+
+    .checkbox {
+      position: absolute;
+      bottom: -48px;
+      left: 212px;
+    }
+
+    &-quote {
+      margin-top: 168px;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        max-width: 540px;
+
+        & + p {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+
+  @include mq(lg) {
+    &.is-project .postWysiwyg-content {
+      img {
+        display: block;
+        width: 100%;
+        margin-left: 0;
+      }
+
+      img + img {
+        margin-left: -150px;
+      }
+
+      img + img + img {
+        margin-left: 0;
+      }
+    }
+
+    &.is-download .postWysiwyg-info,
+    &.is-download .postWysiwyg-content {
+      padding: 0 0 0 200px;
+    }
+
+    &-info,
+    &-content {
+      padding: 0 50px 0 150px;
+      box-sizing: border-box;
+    }
+
+    &-content img {
+      margin-left: -24%;
+      width: 60%;
+
+      & + img {
+        margin-left: 24px;
+      }
+    }
+
+    &-more {
+      padding: 0 50px 0 75px;
+    }
+
+    &-moreTitle {
+      margin-left: -75px;
+    }
+
+    &-morePost-image {
+      max-width: 320px;
+    }
+
+    &-morePost-title {
+      margin-top: 32px;
+      max-width: 260px;
+    }
+
+    &-morePost-link {
+      margin-top: 48px;
+    }
+  }
+
+  @include mq(xl) {
+    &.is-project .postWysiwyg-content {
+      img + img {
+        margin-left: -25%;
+      }
+
+      img + img + img {
+        margin-left: 0;
+      }
+
+      img + h1,
+      img + h2,
+      img + h3,
+      img + h4,
+      img + h5,
+      img + h6 {
+        margin-bottom: -64px;
+        margin-left: -50%;
+      }
+    }
+
+    &.is-download .postWysiwyg-info,
+    &.is-download .postWysiwyg-content {
+      display: block;
+      position: relative;
+      margin-left: 0;
+      padding: 0;
+      left: 100%;
+      transform: translateX(-100%);
+    }
+
+    &-info,
+    &-content {
+      margin-left: 33.33%;
+      padding: 0;
+      max-width: 730px;
+    }
+
+    &-references {
+      position: absolute;
+      top: calc(100% + 120px);
+      left: -50%;
+      margin-top: 0;
+    }
+
+    &-more {
+      margin-top: 320px;
+      padding: 0 0 0 20%;
+      max-width: calc(40% + 730px);
+    }
+
+    &-moreTitle {
+      margin-left: -20%;
+    }
+
+    &-morePost-image {
+      max-width: 360px;
+    }
+  }
+
+  @include mq(xxl) {
+    &.is-project .postWysiwyg-content {
+      img + img {
+        margin-left: 0;
+        transform: translateX(-50%);
+      }
+
+      img + img + img {
+        transform: translateX(0);
+      }
+
+      img + h1,
+      img + h2,
+      img + h3,
+      img + h4,
+      img + h5,
+      img + h6 {
+        padding-left: 104px;
+        margin-bottom: -64px;
+        margin-left: -40vw;
+      }
+    }
+
+    &-info,
+    &-content {
+      margin-left: 40%;
+    }
+
+    &-references {
+      left: -40vw;
+      margin-left: 104px;
+    }
+  }
+}

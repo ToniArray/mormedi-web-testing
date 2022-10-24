@@ -1,0 +1,66 @@
+.errorMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 92px;
+  color: $white;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  background-color: $black;
+  box-sizing: border-box;
+
+  .sectionWrapper {
+    text-align: center;
+  }
+
+  &-code {
+    @include typo-rwd(headline-small);
+    display: block;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  &-title {
+    @include typo-rwd(featured-link);
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 32px;
+    max-width: 240px;
+  }
+
+  &-description {
+    @include typo-rwd(item-title);
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 56px;
+    max-width: 175px;
+  }
+
+  &-link {
+    @include typo-rwd(post-body);
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 48px;
+    text-decoration: underline;
+  }
+
+  @include mq(sm) {
+    &-title {
+      margin-top: 40px;
+      max-width: 610px;
+    }
+
+    &-description {
+      margin-top: 64px;
+      max-width: 100%;
+    }
+  }
+
+  @include mq(lg) {
+    padding-top: 104px;
+  }
+}

@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+Allow: /_next/*.css$
+Allow: /_next/*.js$
+Disallow: /_next/
+
+# Host
+Host: https://mormedi.com
+
+# Sitemaps
+Sitemap: https://mormedi.com/sitemap.xml
+Sitemap: https://mormedi.com/server-sitemap.xml

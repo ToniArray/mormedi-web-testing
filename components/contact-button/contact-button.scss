@@ -1,0 +1,57 @@
+.contactButton {
+  display: block;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  width: 68px;
+  height: 68px;
+  mix-blend-mode: difference;
+  z-index: 1;
+
+  &-circle {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: contactRotation 8s linear infinite;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    path {
+      fill: $white;
+    }
+  }
+
+  .iconEnvelop {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    transform: translateX(-50%) translateY(-50%);
+
+    path {
+      fill: $white;
+    }
+  }
+
+  @include mq(sm) {
+    right: 40px;
+    bottom: 40px;
+    width: 96px;
+    height: 96px;
+
+    .iconEnvelop {
+      width: 28px;
+    }
+  }
+}
+
+@keyframes contactRotation {
+  to {
+    transform: rotate(360deg);
+  }
+}

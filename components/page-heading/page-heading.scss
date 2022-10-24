@@ -1,0 +1,86 @@
+.pageHeading {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  padding: 32px 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  background-color: $white;
+  box-sizing: border-box;
+
+  .sectionWrapper {
+    width: 100%;
+  }
+
+  &-title {
+    display: block;
+    position: relative;
+    width: 100%;
+    @include typo-rwd(heading-big);
+    color: $black;
+    opacity: 0;
+
+    & > div {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+
+    & > div > div {
+      display: inline-flex !important;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &-description {
+    display: block;
+    position: relative;
+    margin-top: 48px;
+    width: 100%;
+    @include typo-rwd(post-body);
+    color: $black;
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  @include mq(sm) {
+    padding: 48px 0;
+
+    &-description {
+      margin-top: 96px;
+    }
+  }
+
+  @include mq(lg) {
+    padding: 96px 0;
+
+    &-title {
+      margin-left: 8.33%;
+      max-width: 83.33%;
+    }
+
+    &-description {
+      margin-top: 60px;
+      margin-left: 8.33%;
+      max-width: 50%;
+    }
+  }
+
+  @include mq(xl) {
+    padding: 128px 0;
+
+    &-title {
+      max-width: 66.66%;
+    }
+  }
+
+  @include mq(xxxl) {
+    &-title {
+      max-width: 40%;
+    }
+
+    &-description {
+      max-width: 33.33%;
+    }
+  }
+}

@@ -1,0 +1,390 @@
+// ------------------------------------
+// $HELPERS
+// -> Extends, Functions, Mixins, Animations
+// ------------------------------------
+
+// font-face
+// @include font-face('Gotham', 'GothaHTFLig', 200);
+@mixin font-face-modern(
+  $font-family,
+  $font-filename,
+  $font-weight: normal,
+  $font-style: normal,
+  $font-stretch: normal
+) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('../../fonts/#{$font-filename}.ttf') format('truetype'),
+      /* Safari, Android 2.2+, iOS */ url('../../fonts/#{$font-filename}.woff2')
+        format('woff2'),
+      /* Chrome 26+, Opera 23+ */ url('../../fonts/#{$font-filename}.woff')
+        format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-stretch: $font-stretch;
+  }
+}
+
+// Text overflow with ellipsis
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Vertical align
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin centered($position: relative) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Inline-block
+@mixin inline-block() {
+  display: inline-block;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+}
+
+// Inline-block fix
+// Solution to avoid those annoying white spaces between inline-block elements, mainly cols
+@mixin inline-block-fix {
+  font-size: 0;
+  > * {
+    @include fontSize($font-base);
+  }
+}
+
+// typo-rwd
+// --------
+// Functions for media-breakpoint-up
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+@function -get-modular-font-size(
+  $size-factor,
+  $line-height,
+  $base-size: $font-base
+) {
+  $size: $base-size;
+  $size: $size-factor;
+  @return $size;
+}
+// media-breakpoint-up
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+// Function for typo
+@function -get-text-style-format($text-type) {
+  $text-style: map-deep-get($typography, $text-type, format);
+  @if not $text-style {
+    @warn "Requested typography format not found for text style (#{$text-type}).";
+    @return false;
+  }
+  @return $text-style;
+}
+// Typo
+@mixin typo($text-type, $breakpoint, $text-config: false) {
+  @if (not $text-config) {
+    $style-format: -get-text-style-format($text-type);
+    $text-config: map-get($style-format, $breakpoint);
+    @if not $text-config {
+      @warn "Format for requested #{$breakpoint} breakpoint is not defined on #{$text-type}, default format for xs is provided.";
+      $text-config: map-get($style-format, xs);
+    }
+  }
+  $line-height: map-get($text-config, lh);
+  $font-family: map-get($font-families, map-get($text-config, ff));
+  $font-size: map-get($text-config, fz);
+  $line-height: if($line-height, $line-height, null);
+  $font-size: if(
+    $font-size,
+    -get-modular-font-size($font-size, $line-height),
+    null
+  );
+  $font-weight: map-get($text-config, fw);
+
+  @if $font-size {
+    font-size: $font-size;
+  }
+  @if $font-family {
+    font-family: $font-family;
+  }
+  @if $font-weight {
+    font-weight: $font-weight;
+  }
+  @if $line-height {
+    line-height: $line-height;
+  }
+}
+
+// Use: @include typo-rwd($typography child)
+@mixin typo-rwd($text-type) {
+  $font-level: -get-text-style-format($text-type);
+  @each $breakpoint, $text-config in $font-level {
+    @include media-breakpoint-up($breakpoint) {
+      @include typo($text-type, $breakpoint, $text-config);
+    }
+  }
+}
+
+// Execution of typo-rwd
+@mixin generate-typography-system() {
+  @each $typo, $config in $typography {
+    $tag-list: map-get($config, tags);
+    @if $tag-list {
+      @each $tag in $tag-list {
+        #{$tag} {
+          @include typo-rwd($typo);
+        }
+      }
+    }
+    .#{$typo} {
+      @include typo-rwd($typo);
+    }
+  }
+}
+@include generate-typography-system;
+
+// Default font-base and breakpoints
+$mq-base-font-size: $font-base !default;
+$mq-responsive: true !default;
+$grid-breakpoints: (
+  mobile: 320px,
+  tablet: 740px,
+  desktop: 980px,
+  wide: 1300px,
+) !default;
+
+$mq-static-breakpoint: desktop !default;
+$mq-show-breakpoints: () !default;
+$mq-media-type: all !default;
+
+// Functions for mq
+@function mq-px2em($px, $base-font-size: $mq-base-font-size) {
+  @if unitless($px) {
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
+    @return mq-px2em($px * 1px, $base-font-size);
+  } @else if unit($px) == em {
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1em;
+}
+@function mq-get-breakpoint-length($name, $breakpoints: $grid-breakpoints) {
+  @if map-has-key($breakpoints, $name) {
+    @return map-get($breakpoints, $name);
+  } @else {
+    @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
+  }
+}
+@function mq-parse-breakpoint(
+  $value,
+  $exclusive: false,
+  $breakpoints: $grid-breakpoints
+) {
+  @if type-of($value) == number {
+    @return mq-px2em($value);
+  } @else {
+    @return mq-px2em(mq-get-breakpoint-length($value, $breakpoints)) -
+      if($exclusive, 0.01em, 0);
+  }
+}
+@function mq-stringify($list, $glue: ' and ') {
+  $result: '';
+
+  @each $item in $list {
+    $result: $result + if(length($item) > 1, mq-stringify($item, $glue), $item);
+
+    @if $item != nth($list, -1) {
+      $result: $result + $glue;
+    }
+  }
+
+  @return quote($result);
+}
+@function mq(
+  $from: false,
+  $until: false,
+  $and: false,
+  $or: false,
+  $media-feature: width,
+  $media-type: $mq-media-type,
+  $breakpoints: $grid-breakpoints,
+  $static-breakpoint: $mq-static-breakpoint
+) {
+  $min-value: 0;
+  $max-value: 0;
+  $media-query: ();
+
+  // From: this breakpoint (inclusive)
+  @if $from {
+    $min-value: mq-parse-breakpoint($from, false, $breakpoints);
+  }
+
+  // Until: that breakpoint (exclusive)
+  @if $until {
+    $max-value: mq-parse-breakpoint($until, true, $breakpoints);
+  }
+
+  @if $media-feature {
+    @if $min-value != 0 {
+      $media-query: append(
+        $media-query,
+        '(min-#{$media-feature}: #{$min-value})'
+      );
+    }
+    @if $max-value != 0 {
+      $media-query: append(
+        $media-query,
+        '(max-#{$media-feature}: #{$max-value})'
+      );
+    }
+  }
+
+  @if $and {
+    $media-query: append($media-query, '#{$and}');
+  }
+
+  $media-query: mq-stringify($media-query, ' and ');
+
+  // Prevent unnecessary media query prefix 'all and '
+  @if ($media-type != 'all' and $media-query != '') {
+    $media-query: '#{$media-type} and #{$media-query}';
+  } @else if $media-query == '' {
+    $media-query: $media-type;
+  }
+
+  @if $or {
+    $media-query: append($media-query, '#{$or}');
+    $media-query: mq-stringify($media-query, ', ');
+  }
+
+  $media-query: unquote(#{$media-query});
+
+  @return $media-query;
+}
+
+// mq
+@mixin mq(
+  $from: false,
+  $until: false,
+  $and: false,
+  $or: false,
+  $media-feature: width,
+  $media-type: $mq-media-type,
+  $breakpoints: $grid-breakpoints,
+  $responsive: $mq-responsive,
+  $static-breakpoint: $mq-static-breakpoint
+) {
+  @if ($responsive == false) {
+    $min-value: 0;
+    $max-value: 0;
+
+    // From: this breakpoint (inclusive)
+    @if $from {
+      $min-value: mq-parse-breakpoint($from, false, $breakpoints);
+    }
+
+    // Until: that breakpoint (exclusive)
+    @if $until {
+      $max-value: mq-parse-breakpoint($until, true, $breakpoints);
+    }
+
+    $static-breakpoint-value: mq-get-breakpoint-length(
+      $static-breakpoint,
+      $breakpoints
+    );
+    $target-value: mq-px2em($static-breakpoint-value);
+
+    // Output only rules that start at or span our target value
+    @if (
+      $and ==
+        false and
+        $min-value <=
+        $target-value and
+        ($until == false or $max-value >= $target-value)
+    ) {
+      @content;
+    }
+  }
+
+  // Responsive support is enabled, output rules inside @media queries
+  @else {
+    $media-query: mq(
+      $from,
+      $until,
+      $and,
+      $or,
+      $media-feature,
+      $media-type,
+      $breakpoints,
+      $static-breakpoint
+    );
+
+    @media #{$media-query} {
+      @content;
+    }
+  }
+}
+
+// mq-add-breakpoint
+@mixin mq-add-breakpoint($name, $length) {
+  $new-breakpoint: (
+    $name: $length,
+  );
+  $grid-breakpoints: map-merge($grid-breakpoints, $new-breakpoint) !global;
+}
+
+// mq-show-breakpoints
+@mixin mq-show-breakpoints(
+  $show-breakpoints: $mq-show-breakpoints,
+  $breakpoints: $grid-breakpoints
+) {
+  body:before {
+    background-color: #fcf8e3;
+    border-bottom: 1px solid #fbeed5;
+    border-left: 1px solid #fbeed5;
+    color: #c09853;
+    font: small-caption;
+    padding: 3px 6px;
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+
+    // Loop through the breakpoints that should be shown
+    @each $show-breakpoint in $show-breakpoints {
+      $length: mq-get-breakpoint-length($show-breakpoint, $breakpoints);
+      @include mq($show-breakpoint, $breakpoints: $breakpoints) {
+        content: '#{$show-breakpoint} ≥ #{$length} (#{mq-px2em($length)})';
+      }
+    }
+  }
+}
+
+@if length($mq-show-breakpoints) > 0 {
+  @include mq-show-breakpoints;
+}

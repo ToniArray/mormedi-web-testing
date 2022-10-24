@@ -1,0 +1,190 @@
+.footer {
+  $self: &;
+  display: block;
+  position: relative;
+  padding: 120px 0 48px 0;
+  background-color: $white;
+  box-sizing: border-box;
+  z-index: 1;
+
+  &.is-negative {
+    background-color: $black;
+
+    #{$self}-title,
+    #{$self}-emailLink,
+    #{$self}-locationTitle,
+    #{$self}-link,
+    #{$self}-legal,
+    .arrowLinkBig {
+      color: $white;
+    }
+
+    svg path {
+      fill: $white;
+    }
+  }
+
+  &-title {
+    display: block;
+    position: relative;
+    @include typo-rwd(post-title);
+    color: $black;
+  }
+
+  &-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
+  &-emailLink {
+    display: block;
+    position: relative;
+    @include typo-rwd(headline-small);
+    color: $black;
+  }
+
+  &-links {
+    display: block;
+    position: relative;
+
+    li + li {
+      margin-top: 24px;
+    }
+  }
+
+  &-locations {
+    display: block;
+    position: relative;
+    margin-top: 96px;
+    max-width: 168px;
+
+    li + li {
+      margin-top: 40px;
+    }
+  }
+
+  &-locationTitle {
+    display: inline-block;
+    position: relative;
+    // Needs refactorize text
+    font-family: $sailec-medium;
+    font-weight: $medium;
+    color: $black;
+    line-height: 1rem;
+
+    & + #{$self}-link {
+      margin-top: 16px;
+    }
+
+    svg {
+      margin-right: 4px;
+      width: 12px;
+      height: 12px;
+    }
+
+    path {
+      fill: $black;
+    }
+  }
+
+  &-link {
+    display: block;
+    @include typo-rwd(body);
+
+    &.is-active {
+      color: $gray-60;
+      pointer-events: none;
+    }
+  }
+
+  &-controls {
+    display: block;
+    position: relative;
+    margin-top: 96px;
+  }
+
+  &-languages {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+
+    li {
+      display: block;
+      position: relative;
+    }
+
+    button + button {
+      margin-left: 16px;
+    }
+  }
+
+  &-legal {
+    margin-top: 40px;
+
+    a {
+      margin-left: 24px;
+    }
+  }
+
+  @include mq(sm) {
+    padding: 220px 0 96px 0;
+
+    &-locations {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 224px;
+      max-width: 100%;
+
+      li {
+        width: 25%;
+      }
+
+      li + li {
+        margin-top: 0;
+      }
+
+      #{$self}-link {
+        padding-right: 24px;
+        max-width: 196px;
+        box-sizing: border-box;
+      }
+    }
+
+    &-controls {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    &-legal {
+      margin-top: 0;
+    }
+  }
+}
+
+.errorMessage + .footer {
+  background-color: $black;
+
+  .footer-title,
+  .footer-emailLink,
+  .footer-locationTitle,
+  .footer-link,
+  .footer-legal,
+  .arrowLinkBig {
+    color: $white;
+  }
+
+  svg path {
+    fill: $white;
+  }
+}

@@ -1,0 +1,202 @@
+.aboutMap {
+  display: block;
+  position: relative;
+  margin-top: 120px;
+
+  &-title {
+    @include typo-rwd(headline);
+    display: block;
+    position: relative;
+    max-width: 280px;
+    color: $black;
+  }
+
+  &-button {
+    display: block;
+    position: relative;
+    margin-top: 64px;
+    margin-left: 8.33%;
+    width: 160px;
+    height: 160px;
+    border: 1px solid $black;
+    border-radius: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: transform 0.15s linear;
+  }
+
+  &-buttonLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: $black;
+    background-color: $white;
+    transition: color $simple-fade, background-color $simple-fade;
+
+    html:not(.is-mobile) &:hover {
+      color: $white;
+      background-color: $black;
+    }
+  }
+
+  &-buttonText {
+    max-width: 110px;
+    // Needs refactorize text
+    font-size: 14px;
+  }
+
+  &-map {
+    display: block;
+    position: relative;
+    margin-top: 72px;
+    width: 100%;
+    height: auto;
+  }
+
+  &-cities {
+    display: block;
+    position: relative;
+    margin-top: 72px;
+    margin-bottom: -32px;
+  }
+
+  &-citiesList {
+    @include typo-rwd(body);
+    display: block;
+    position: relative;
+    color: $black;
+    margin-bottom: 32px;
+
+    li {
+      white-space: nowrap;
+    }
+
+    li + li {
+      margin-top: 4px;
+    }
+
+    .aboutMap-citiesList-title + li {
+      margin-top: 6px;
+    }
+
+    &:nth-child(1) .aboutMap-citiesList-title::after {
+      background-color: $red;
+    }
+    &:nth-child(2) .aboutMap-citiesList-title::after {
+      background-color: $green;
+    }
+    &:nth-child(3) .aboutMap-citiesList-title::after {
+      background-color: $yellow;
+    }
+    &:nth-child(4) .aboutMap-citiesList-title::after {
+      background-color: $purple;
+    }
+  }
+
+  &-citiesList-title {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    position: relative;
+    font-family: $sailec-bold;
+    font-weight: $bold;
+
+    &::after {
+      content: '';
+      display: block;
+      position: relative;
+      margin-top: -2px;
+      margin-left: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+    }
+  }
+
+  @include mq(sm) {
+    margin-top: 192px;
+
+    &-title {
+      max-width: 720px;
+    }
+
+    &-map {
+      margin-top: 192px;
+    }
+
+    &-cities {
+      margin-top: 192px;
+    }
+  }
+
+  @include mq(md) {
+    margin-top: 240px;
+
+    &-cities {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    &-citiesList {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding-right: 64px;
+      max-height: 222px;
+      width: 25%;
+      max-width: 240px;
+      box-sizing: border-box;
+
+      &:last-child {
+        padding-right: 0;
+        min-width: 100%;
+      }
+
+      &:last-child li {
+        padding-right: 64px;
+        width: 25%;
+        max-width: 240px;
+        box-sizing: border-box;
+      }
+
+      li:nth-child(7) + li,
+      li:nth-child(13) + li,
+      li:nth-child(19) + li {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  @media (min-width: 1152px) {
+    &-citiesList:last-child {
+      min-width: 960px;
+    }
+  }
+
+  @include mq(xxl) {
+    &-citiesList {
+      padding-right: 32px;
+      max-width: 208px;
+
+      &:last-child {
+        min-width: 832px;
+      }
+
+      &:last-child li {
+        padding-right: 32px;
+        max-width: 208px;
+      }
+    }
+  }
+}
