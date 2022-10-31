@@ -159,7 +159,7 @@ export default class MyDocument extends Document {
           <meta name="twitter:image:alt" content="Mormedi" />
 
           {/* Meta robots */}
-          <meta name="robots" content="index,follow" />
+          <meta name="robots" content="noindex,nofollow" />
         </Head>
         <body>
           <Main />
