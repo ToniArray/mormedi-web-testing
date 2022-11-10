@@ -20,10 +20,26 @@ export default function Home({
   heroText,
   gallery,
   categories,
-  claim,
   projectsSection,
 }) {
   const t = useTranslations()
+
+  const claim = { 
+    description: t('home:description'),
+    title: t('home:title'),
+    buttonLink: { 
+      title: t('home:buttonLinkTitle'),
+      link: t('home:buttonLink'),
+    },
+    words: [
+      t('home:wordsForesight'),
+      t('home:wordsStrategy'),
+      t('home:wordsDesign'),
+      t('home:wordsForesight'),
+      t('home:wordsStrategy'),
+      t('home:wordsDesign'),
+    ] }  
+
 
   return (
     <>
@@ -77,7 +93,7 @@ export default function Home({
             </SnapSection>
           ))}
 
-    {/*     <SnapSection>
+    {     <SnapSection>
           <HomeClaim
             title={claim.title}
             description={claim.description}
@@ -89,7 +105,7 @@ export default function Home({
             projects={projectsSection.featuredProjects}
           />
           <ContactButton />
-        </SnapSection> */}
+        </SnapSection> }
       </>
     </>
   )
@@ -105,9 +121,10 @@ export async function getServerSideProps({ locale }) {
     heroText = '',
     gallery = [],
     categories = [],
-    claim = { buttonLink: { title: '', link: '' }, words: [] },
     projectsSection = { projects: [] },
   } = data
+
+  
 
   const featuredProjects = projectsSection.projects.map(
     ({ mediaLayout, media, project }) => ({
@@ -120,7 +137,6 @@ export async function getServerSideProps({ locale }) {
 
   const galleryItems = gallery.map(({ item }) => item)
 
-  const claimWords = claim.words.map(({ word }) => word)
 
   return {
     props: {
@@ -128,11 +144,6 @@ export async function getServerSideProps({ locale }) {
       heroText: heroText,
       gallery: galleryItems,
       categories: categories,
-      claim: {
-        ...claim,
-        words: claimWords,
-/*         description: converter.makeHtml(claim.description),
- */      },
       projectsSection: { ...projectsSection, featuredProjects },
     },
   }
