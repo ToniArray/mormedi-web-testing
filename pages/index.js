@@ -100,7 +100,7 @@ export default function Home({
             buttonLink={claim.buttonLink}
             words={claim.words}
           />
-         {/*  <FeaturedProjects
+      {/*     <FeaturedProjects
             title={projectsSection.title}
             projects={projectsSection.featuredProjects}
           /> */}
