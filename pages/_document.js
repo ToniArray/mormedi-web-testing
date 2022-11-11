@@ -159,7 +159,7 @@ export default class MyDocument extends Document {
           <meta name="twitter:image:alt" content="Mormedi" />
 
           {/* Meta robots */}
-          <meta name="robots" content="noindex,nofollow" />
+          <meta name="robots" content={ process.env.NEXT_ROBOOT_IDEX } />
         </Head>
         <body>
           <Main />
