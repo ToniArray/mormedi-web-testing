@@ -63,7 +63,7 @@ export default function Home({
 
       <>
         <SnapSection isEnd isNegative>
-          <Hero title={heroText} />
+          <Hero title={t('home:hero-text')} />
           <Gallery items={gallery} />
           {categories[0] ? (
             <HomeCategory
