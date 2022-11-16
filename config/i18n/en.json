@@ -127,5 +127,9 @@
   "city:sydney": "Sydney",
   "city:abu": "Abu Dhabi",
   "clients:some-clients": "Some clients",
-  "back-button": "Back"
+  "back-button": "Back",
+  "footer:downloads-title": "Downloads",
+  "footer:downloads-link": "https://www.mormedi.com/downloads",
+  "footer:project-title": "Key Projects",
+  "footer:project-link": "https://www.mormedi.com/key-projects"
 }

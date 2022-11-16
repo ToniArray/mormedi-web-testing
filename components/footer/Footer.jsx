@@ -18,7 +18,7 @@ import ArrowLinkBig from '../arrow-link/ArrowLinkBig'
 import IconPlace from '../../public/icons/icon-place'
 import IconArrow from '../../public/icons/icon-arrow'
 
-const Footer = ({ isNegative, title, buttonLinks, cities }) => {
+const Footer = ({ isNegative, title, cities }) => {
   const containerRef = useRef(null)
   const titleRef = useRef(null)
   const converter = new showdown.Converter()
@@ -52,16 +52,21 @@ const Footer = ({ isNegative, title, buttonLinks, cities }) => {
     return () => anim.kill()
   }, [title, containerRef, titleRef, mainWrapperRef])
 
+  const buttonLinks = [
+    {
+      title: t('footer:downloads-title'),
+      link: t('footer:downloads-link'),
+    },
+    {
+      title: t('footer:project-title'),
+      link: t('footer:project-link'),
+    }
+  ]
+
   return (
     <footer className={classes} ref={containerRef}>
       <SectionWrapper>
-        <p
-          className="footer-title"
-          dangerouslySetInnerHTML={{
-            __html: converter.makeHtml(title),
-          }}
-          ref={titleRef}
-        ></p>
+        <p className="footer-title">Let&apos;s chat.</p>
         <div className="footer-email">
           <a
             className="footer-emailLink"
