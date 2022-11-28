@@ -1,5 +1,4 @@
 import { useEffect, useRef, useMemo } from 'react'
-import cx from 'classnames'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import { SplitText } from 'gsap/dist/SplitText'
@@ -9,13 +8,11 @@ import { useMainWrapper } from '../../contexts/MainWrapperContext'
 
 import Link from '../../components/link/Link'
 
-const FeaturedProject = ({ client, title, type, to, media }) => {
+const FeaturedProject = ({ cliente, title, to, media }) => {
   const mediaRef = useRef(null)
   const clientRef = useRef(null)
   const titleRef = useRef(null)
   const { mainWrapperRef } = useMainWrapper()
-
-  const isVideo = useMemo(() => media.mime.includes('video'), [media.mime])
 
   useEffect(() => {
     const client = clientRef.current
@@ -72,42 +69,26 @@ const FeaturedProject = ({ client, title, type, to, media }) => {
     return () => anim.kill()
   }, [mediaRef, mainWrapperRef])
 
-  const classes = cx('featuredProjects-project', {
-    'is-horizontal': type === 'horizontal',
-    'is-vertical': type === 'vertical',
-    'is-smallHorizontal': type === 'smallHorizontal',
-  })
-
   return (
-    <div className={classes}>
+    <div className="featuredProjects-project is-horizontal">
       <div className="featuredProjects-projectInfo">
-        <span className="featuredProjects-projectClient" ref={clientRef}>
-          {client}
-        </span>
+      <span className="featuredProjects-projectClient" ref={clientRef}>
+        {cliente !== null ? cliente.name : ''}
+       </span>
+
+
         <p className="featuredProjects-projectTitle">
-          <Link to={to} title={title} ref={titleRef}>
+          <Link to={`/projects/${to}`} title={title} ref={titleRef}>
             {title}
           </Link>
         </p>
       </div>
       <div className="featuredProjects-projectMedia" ref={mediaRef}>
-        {isVideo ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            onLoad={() => ScrollTrigger.refresh()}
-          >
-            <source src={media.url} type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            src={media.url}
-            alt={media.alternativeText}
-            onLoad={() => ScrollTrigger.refresh()}
-          />
-        )}
+        <img
+          src={media}
+          alt="mediaURL"
+          onLoad={() => ScrollTrigger.refresh()}
+        />
       </div>
     </div>
   )

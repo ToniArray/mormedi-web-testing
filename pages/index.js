@@ -20,7 +20,7 @@ export default function Home({
   heroText,
   gallery,
   categories,
-  projectsSection,
+  projects,
 }) {
   const t = useTranslations()
 
@@ -100,10 +100,9 @@ export default function Home({
             buttonLink={claim.buttonLink}
             words={claim.words}
           />
-      {/*     <FeaturedProjects
-            title={projectsSection.title}
-            projects={projectsSection.featuredProjects}
-          /> */}
+      {     <FeaturedProjects
+            projects={projects}
+          /> }
           <ContactButton />
         </SnapSection> }
       </>
@@ -113,6 +112,8 @@ export default function Home({
 
 export async function getServerSideProps({ locale }) {
   const data = await getSingle(ENDPOINTS.HOME, locale)
+  const projects = await getSingle(ENDPOINTS.PROJECTS, locale)
+
 
   const converter = new showdown.Converter()
 
@@ -121,11 +122,9 @@ export async function getServerSideProps({ locale }) {
     heroText = '',
     gallery = [],
     categories = [],
-    projectsSection = { projects: [] },
   } = data
 
-  
-
+/* 
   const featuredProjects = projectsSection.projects.map(
     ({ mediaLayout, media, project }) => ({
       mediaLayout,
@@ -134,7 +133,7 @@ export async function getServerSideProps({ locale }) {
       ...project,
     }),
   )
-
+ */
   const galleryItems = gallery.map(({ item }) => item)
 
 
@@ -144,7 +143,7 @@ export async function getServerSideProps({ locale }) {
       heroText: heroText,
       gallery: galleryItems,
       categories: categories,
-      projectsSection: { ...projectsSection, featuredProjects },
+      projects
     },
   }
 }

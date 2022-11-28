@@ -7,10 +7,13 @@ import { useMainWrapper } from '../../contexts/MainWrapperContext'
 
 import SectionWrapper from '../wrappers/SectionWrapper'
 import FeaturedProject from './FeturedProject'
+import useTranslations from '../../config/i18n/useTranslations'
 
-const FeaturedProjects = ({ title, projects }) => {
+
+const FeaturedProjects = ({ projects }) => {
   const containerRef = useRef(null)
   const titleRef = useRef(null)
+  const t = useTranslations()
 
   const { mainWrapperRef } = useMainWrapper()
 
@@ -38,36 +41,21 @@ const FeaturedProjects = ({ title, projects }) => {
     <section className="featuredProjects has-negative" ref={containerRef}>
       <SectionWrapper isSmall>
         <h4 className="featuredProjects-title" ref={titleRef}>
-          {title}
+          {t('home:project-title')}
         </h4>
         {projects.map((project, index) => (
           <FeaturedProject
-            client={project.client.name}
+            cliente={project.client}
             title={project.title}
-            type={project.mediaLayout}
-            media={project.media}
-            to={project.to}
+            media={project.coverImage.url}
+            to={project.slug}
             key={index}
           />
         ))}
+
+
       </SectionWrapper>
     </section>
   )
 }
-
-FeaturedProjects.propTypes = {
-  title: PropTypes.string,
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      to: PropTypes.string.isRequired,
-      media: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        mime: PropTypes.string.isRequired,
-        alternativeText: PropTypes.string,
-      }),
-    }),
-  ).isRequired,
-}
-
 export default FeaturedProjects
