@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 
 import gsap from 'gsap'
@@ -15,7 +15,7 @@ const BackButton = () => {
 
   const pushBack = () => router.back()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     gsap.to(buttonRef.current, {
       opacity: 0,
       scrollTrigger: {

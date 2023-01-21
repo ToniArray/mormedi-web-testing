@@ -11,15 +11,14 @@ const Link = (props, ref) => {
   })
 
   return (
-    <NextLink href={props.to}>
-      <a
-        className={classes}
-        onClick={props.handleClick ? props.handleClick : undefined}
-        title={props.title}
-        ref={ref}
-      >
-        {props.children}
-      </a>
+    <NextLink
+      href={props.to}
+      className={classes}
+      onClick={props.handleClick ? props.handleClick : undefined}
+      title={props.title}
+      ref={ref}
+    >
+      {props.children}
     </NextLink>
   )
 }
