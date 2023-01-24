@@ -20,6 +20,7 @@ import PolicyAgreeCheckbox from '../components/checkbox/PolicyAgreeCheckbox'
 import User from '../components/user/User'
 
 import IconClose from '../public/icons/icon-close'
+import BusinessForm from '../components/business-form'
 
 const titles = [
   'contact:tabs:business',
@@ -55,23 +56,7 @@ export default function Contact({
 
   const handleSubmit = async ev => {
     ev.preventDefault()
-
-    const formData = new FormData()
-
-    if (selectedFile !== null) {
-      formData.append('files.cv', selectedFile, selectedFile.name)
-    }
-
-    formData.append(
-      'data',
-      JSON.stringify({
-        subject: t(selected),
-        body: JSON.stringify(data, null, 2),
-      }),
-    )
-
     const result = await sendEmail(formData)
-
     if (result.success) {
       router.push(ROUTES.CONFIRMATION.path)
     } else {
@@ -117,82 +102,7 @@ export default function Contact({
                 'is-active': selected === 'contact:tabs:business',
               })}
             >
-              <form
-                className="contact-form"
-                id="business-form"
-                onSubmit={handleSubmit}
-              >
-                <label className="label">
-                  {`* ${t('contact:required-fields')}`}
-                </label>
-                <div className="contact-form-content">
-                  <fieldset className="contact-fieldset">
-                    <Input
-                      required
-                      id="business-name"
-                      name="name"
-                      placeholder={t('contact:your-name')}
-                      value={data.name || ''}
-                      onChange={handleChange}
-                    />
-                    <Input
-                      required
-                      type="email"
-                      id="business-email"
-                      name="email"
-                      placeholder={t('contact:your-email')}
-                      value={data.email || ''}
-                      onChange={handleChange}
-                    />
-                    <div className="field">
-                      <select
-                        required
-                        id="business-city"
-                        name="city"
-                        value={data.city || ''}
-                        onChange={handleChange}
-                      >
-                        <option value=""></option>
-                        <option value="Madrid">Madrid</option>
-                        <option value="Tokio">Tokio</option>
-                        <option value="Mexico City">Mexico City</option>
-                        <option value="London">London</option>
-                      </select>
-                      <label>{`${t('contact:select-office')}*`}</label>
-                    </div>
-                    <Input
-                      required
-                      id="business-phone"
-                      name="phone"
-                      placeholder={t('contact:phone-number')}
-                      value={data.phone || ''}
-                      onChange={handleChange}
-                    />
-                  </fieldset>
-                  <fieldset className="contact-fieldset">
-                    <div className="field">
-                      <textarea
-                        required
-                        id="business-message"
-                        name="message"
-                        placeholder={t('contact:message')}
-                        rows="2"
-                        cols="30"
-                        value={data.message || ''}
-                        onChange={handleChange}
-                      />
-                      <label>{t('contact:message')}*</label>
-                    </div>
-                    <PolicyAgreeCheckbox id="business-agree" />
-                  </fieldset>
-                </div>
-                <Button
-                  type="submit"
-                  width={60}
-                  text={t('contact:send')}
-                  aria-label="Submit"
-                />
-              </form>
+           <BusinessForm />
             </div>
             <div
               className={cx('contactTabs-content tabs-content', {
