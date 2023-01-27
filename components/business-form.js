@@ -1,50 +1,52 @@
-import React, { useState } from "react";
+import React, { useRef } from 'react'
 import { useRouter } from 'next/router'
 import * as ROUTES from '../config/routes'
-
+import emailjs from '@emailjs/browser'
 
 import useTranslations from '../config/i18n/useTranslations'
 
 import Input from '../components/input/Input'
 import PolicyAgreeCheckbox from '../components/checkbox/PolicyAgreeCheckbox'
 import Button from '../components/button/Button'
-import { sendEmail } from '../services/cms'
 
 const BusinessForm = ({ buttons, descriptions }) => {
+  const YOUR_SERVICE_ID = 'service_1tu0da7'
+  const YOUR_TEMPLATE_ID = 'template_boi9x4u'
+  const YOUR_PUBLIC_KEY = 'XaXi12p230JfJqZgB'
+  
   const router = useRouter()
   const t = useTranslations()
+  const form = useRef();
 
 
   const handleSubmit = async ev => {
     ev.preventDefault()
-    const formData = {
-      name:  ev.target.name.value,
-      email: ev.target.email.value,
-      city: ev.target.city.value,
-      phone: ev.target.phone.value,
-      message: ev.target.message.value,
-      subject: 'Formulario de contacto Empresas',
-    }
-    console.log(formData);
-
-
-  const result = await sendEmail(formData)
-      if (result.success) {
-      router.push(ROUTES.CONFIRMATION.path)
-    } else {
-      router.push(ROUTES.ERROR.path)
-    } 
+      emailjs
+      .sendForm(
+        YOUR_SERVICE_ID,
+        YOUR_TEMPLATE_ID,
+        form.current,
+        YOUR_PUBLIC_KEY,
+      )
+      .then(
+        result => {
+          router.push(ROUTES.CONFIRMATION.path)
+        },
+        error => {
+          router.push(ROUTES.ERROR.path)
+        },
+      )  
   }
 
   return (
     <>
-      <form className="contact-form" id="business-form" onSubmit={handleSubmit}>
+      <form  ref={form} className="contact-form" id="business-form" onSubmit={handleSubmit}>
         <label className="label">{`* ${t('contact:required-fields')}`}</label>
         <div className="contact-form-content">
           <fieldset className="contact-fieldset">
             <Input
               required
-              id="business-name"
+              id="name"
               name="name"
               placeholder={t('contact:your-name')}
             />
@@ -56,11 +58,7 @@ const BusinessForm = ({ buttons, descriptions }) => {
               placeholder={t('contact:your-email')}
             />
             <div className="field">
-              <select
-                required
-                id="city"
-                name="city"
-              >
+              <select required id="city" name="city">
                 <option value=""></option>
                 <option value="Madrid">Madrid</option>
                 <option value="Tokio">Tokio</option>

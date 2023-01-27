@@ -21,6 +21,7 @@ import User from '../components/user/User'
 
 import IconClose from '../public/icons/icon-close'
 import BusinessForm from '../components/business-form'
+import PressForm from '../components/press-form'
 
 const titles = [
   'contact:tabs:business',
@@ -109,74 +110,7 @@ export default function Contact({
                 'is-active': selected === 'contact:tabs:press',
               })}
             >
-              <form
-                className="contact-form"
-                id="press-form"
-                onSubmit={handleSubmit}
-              >
-                <label className="label">
-                  {`* ${t('contact:required-fields')}`}
-                </label>
-                <div className="contact-form-content">
-                  <fieldset className="contact-fieldset">
-                    <Input
-                      required
-                      id="press-name"
-                      name="name"
-                      placeholder={t('contact:your-name')}
-                      value={data.name || ''}
-                      onChange={handleChange}
-                    />
-                    <Input
-                      required
-                      id="press-email"
-                      name="email"
-                      placeholder={t('contact:your-email')}
-                      type="email"
-                      value={data.email || ''}
-                      onChange={handleChange}
-                    />
-                    <Input
-                      required
-                      id="press-company"
-                      name="company"
-                      placeholder={t('contact:your-company')}
-                      value={data.company || ''}
-                      onChange={handleChange}
-                    />
-                    <Input
-                      required
-                      id="press-phone"
-                      name="phone"
-                      placeholder={t('contact:phone-number')}
-                      value={data.phone || ''}
-                      onChange={handleChange}
-                    />
-                  </fieldset>
-                  <fieldset className="contact-fieldset">
-                    <div className="field">
-                      <textarea
-                        required
-                        id="press-message"
-                        name="message"
-                        placeholder={t('contact:message')}
-                        rows="2"
-                        cols="30"
-                        value={data.message || ''}
-                        onChange={handleChange}
-                      />
-                      <label>{t('contact:message')}*</label>
-                    </div>
-                    <PolicyAgreeCheckbox id="press-agree" />
-                  </fieldset>
-                </div>
-                <Button
-                  type="submit"
-                  width={60}
-                  text={t('contact:send')}
-                  aria-label="Submit"
-                />
-              </form>
+              <PressForm />
             </div>
             <div
               className={cx('contactTabs-content tabs-content', {
