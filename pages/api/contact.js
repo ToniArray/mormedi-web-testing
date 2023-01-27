@@ -1,5 +1,3 @@
-import { transporter } from "../../config/nodemailer";
-
 const CONTACT_MESSAGE_FIELDS = {
   name: "Nombre",
   email: "Email",
