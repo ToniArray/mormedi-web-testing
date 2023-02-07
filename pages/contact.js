@@ -13,21 +13,19 @@ import * as ROUTES from '../config/routes'
 
 import PageHeading from '../components/page-heading/PageHeading'
 import SectionWrapper from '../components/wrappers/SectionWrapper'
-import Button from '../components/button/Button'
-import Input from '../components/input/Input'
 import ContactTabs from '../components/tabs/ContactTabs'
-import PolicyAgreeCheckbox from '../components/checkbox/PolicyAgreeCheckbox'
 import User from '../components/user/User'
 
-import IconClose from '../public/icons/icon-close'
 import BusinessForm from '../components/business-form'
 import PressForm from '../components/press-form'
+import JobsForm from '../components/jobs-form'
 
 const titles = [
   'contact:tabs:business',
   'contact:tabs:press',
   'contact:tabs:join',
 ]
+
 
 export default function Contact({
   metaHeading = {},
@@ -117,108 +115,7 @@ export default function Contact({
                 'is-active': selected === 'contact:tabs:join',
               })}
             >
-              <form
-                className="contact-form"
-                id="join-form"
-                onSubmit={handleSubmit}
-              >
-                <label className="label">
-                  {`* ${t('contact:required-fields')}`}
-                </label>
-                <div className="contact-form-content">
-                  <fieldset className="contact-fieldset">
-                    <Input
-                      required
-                      id="join-name"
-                      name="name"
-                      placeholder={t('contact:your-name')}
-                      value={data.name || ''}
-                      onChange={handleChange}
-                    />
-                    <Input
-                      required
-                      id="join-email"
-                      name="email"
-                      placeholder={t('contact:your-email')}
-                      type="email"
-                      value={data.email || ''}
-                      onChange={handleChange}
-                    />
-                    <div className="field">
-                      <div className="dropButton">
-                        {selectedFile !== null ? (
-                          <div style={{ fontSize: '0.625rem' }}>
-                            <span>{selectedFile.name}</span>
-                            <span onClick={handleDeleteFile}>
-                              <IconClose />
-                            </span>
-                          </div>
-                        ) : (
-                          <>
-                            <input
-                              required
-                              id="join-cv"
-                              name="cv"
-                              type="file"
-                              title=""
-                              value=""
-                              style={{ opacity: 0 }}
-                              onChange={handleSelectFile}
-                            />
-                            <label htmlFor="join-cv">
-                              {t('contact:upload-file')}
-                            </label>
-                          </>
-                        )}
-                      </div>
-
-                      <label>{`${t('contact:your-cv')} *`}</label>
-                    </div>
-                    <Input
-                      id="porfolio"
-                      name="porfolio"
-                      placeholder={t('contact:your-porfolio')}
-                      value={data.porfolio || ''}
-                      onChange={handleChange}
-                    />
-                  </fieldset>
-                  <fieldset className="contact-fieldset">
-                    <div className="field">
-                      <textarea
-                        required
-                        id="join-profile"
-                        name="profile"
-                        placeholder={t('contact:what-profile')}
-                        rows="2"
-                        cols="30"
-                        value={data.profile || ''}
-                        onChange={handleChange}
-                      />
-                      <label>{`${t('contact:what-profile')} *`}</label>
-                    </div>
-                    <div className="field">
-                      <textarea
-                        required
-                        id="join-message"
-                        name="message"
-                        placeholder={t('contact:message')}
-                        rows="2"
-                        cols="30"
-                        value={data.message || ''}
-                        onChange={handleChange}
-                      />
-                      <label>{t('contact:message')}*</label>
-                    </div>
-                    <PolicyAgreeCheckbox id="join-agree" />
-                  </fieldset>
-                </div>
-                <Button
-                  type="submit"
-                  width={60}
-                  text={t('contact:send')}
-                  aria-label="Submit"
-                />
-              </form>
+             <JobsForm />
             </div>
           </ContactTabs>
 
