@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import { useRouter } from 'next/router'
 import * as ROUTES from '../config/routes'
-import emailjs from '@emailjs/browser'
 
 import useTranslations from '../config/i18n/useTranslations'
 
@@ -9,10 +8,7 @@ import Input from '../components/input/Input'
 import PolicyAgreeCheckbox from '../components/checkbox/PolicyAgreeCheckbox'
 import Button from '../components/button/Button'
 
-const PressForm = ({ buttons, descriptions }) => {
-  const YOUR_SERVICE_ID = 'service_1tu0da7'
-  const YOUR_TEMPLATE_ID = 'template_qljexsk'
-  const YOUR_PUBLIC_KEY = 'XaXi12p230JfJqZgB'
+const PressForm = () => {
   
   const router = useRouter()
   const t = useTranslations()
@@ -21,21 +17,38 @@ const PressForm = ({ buttons, descriptions }) => {
 
   const handleSubmit = async ev => {
     ev.preventDefault()
-      emailjs
-      .sendForm(
-        YOUR_SERVICE_ID,
-        YOUR_TEMPLATE_ID,
-        form.current,
-        YOUR_PUBLIC_KEY,
-      )
-      .then(
-        result => {
-          router.push(ROUTES.CONFIRMATION.path)
+    const options = {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        'api-key': process.env.NEXT_PUBLIC_SENDIBLUE_API,
+      },
+      body: JSON.stringify({
+        sender: { email: 'web.mormedi@intercloud.es', name: 'mormedi' },
+        to: [{ email: 'comunicacion@mormedi.com', name: 'mormedi' }],
+        params: {
+          NOMBRE: ev.target.name.value,
+          EMAIL: ev.target.email.value,
+          EMPRESA: ev.target.company.value,
+          TELEFONO: ev.target.phone.value,
+          MENSAJE: ev.target.message.value,
+          FORM_TYPE: 'eventos',
         },
-        error => {
-          router.push(ROUTES.ERROR.path)
-        },
-      )  
+        subject: 'Formulario nuevas prensa y eventos',
+        templateId: 5,
+      }),
+    }
+    fetch('https://api.sendinblue.com/v3/smtp/email', options)
+      .then(response => {
+        console.log(response)
+        router.push(ROUTES.CONFIRMATION.path)
+      })
+      .catch(err => {
+        console.log(err)
+        router.push(ROUTES.ERROR.path)
+      })
+   
   }
 
   return (

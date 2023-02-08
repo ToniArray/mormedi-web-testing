@@ -21,21 +21,37 @@ const BusinessForm = ({ buttons, descriptions }) => {
 
   const handleSubmit = async ev => {
     ev.preventDefault()
-      emailjs
-      .sendForm(
-        YOUR_SERVICE_ID,
-        YOUR_TEMPLATE_ID,
-        form.current,
-        YOUR_PUBLIC_KEY,
-      )
-      .then(
-        result => {
-          router.push(ROUTES.CONFIRMATION.path)
+    const options = {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        'api-key': process.env.NEXT_PUBLIC_SENDIBLUE_API,
+      },
+      body: JSON.stringify({
+        sender: { email: 'web.mormedi@intercloud.es', name: 'mormedi' },
+        to: [{ email: 'comunicacion@mormedi.com', name: 'mormedi' }],
+        params: {
+          NOMBRE: ev.target.name.value,
+          EMAIL: ev.target.email.value,
+          CIUDAD: ev.target.city.value,
+          TELEFONO: ev.target.phone.value,
+          MENSAJE: ev.target.message.value,
+          FORM_TYPE: 'empresas',
         },
-        error => {
-          router.push(ROUTES.ERROR.path)
-        },
-      )  
+        subject: 'Formulario nuevas empresas',
+        templateId: 4,
+      }),
+    }
+    fetch('https://api.sendinblue.com/v3/smtp/email', options)
+      .then(response => {
+        console.log(response)
+        router.push(ROUTES.CONFIRMATION.path)
+      })
+      .catch(err => {
+        console.log(err)
+        router.push(ROUTES.ERROR.path)
+      })
   }
 
   return (

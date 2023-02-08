@@ -50,7 +50,7 @@ const JobsForm = ({ buttons, descriptions }) => {
       },
       body: JSON.stringify({
         sender: { email: 'web.mormedi@intercloud.es', name: 'mormedi' },
-        to: [{ email: 'jsus.millan@gmail.com', name: 'Jesus' }],
+        to: [{ email: 'jobs@mormedi.com', name: 'mormedi' }],
         attachment: [
           {
             content: selectedFile,
