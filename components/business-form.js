@@ -30,7 +30,7 @@ const BusinessForm = ({ buttons, descriptions }) => {
       },
       body: JSON.stringify({
         sender: { email: 'web.mormedi@intercloud.es', name: 'mormedi' },
-        to: [{ email: 'comunicacion@mormedi.com', name: 'mormedi' }],
+        to: [{ email: 'scebrian@mormedi.com', name: 'mormedi' }],
         params: {
           NOMBRE: ev.target.name.value,
           EMAIL: ev.target.email.value,
