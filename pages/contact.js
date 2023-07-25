@@ -81,7 +81,8 @@ export default function Contact({
         />
       </Head>
 
-      <PageHeading title={title} description={description} />
+      {/* <PageHeading title={title} description={description} /> */}
+      <PageHeading title={title} description={t('contact:description')} />
       <section className="contact-wrapper">
         <SectionWrapper>
           <div className="contact-message">
