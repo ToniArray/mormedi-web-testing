@@ -2,23 +2,30 @@ import { useState } from 'react'
 
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import cx from 'classnames'
 
 import useTranslations from '../config/i18n/useTranslations'
 
 import { getSingle, sendEmail } from '../services/cms'
 
-import * as ROUTES from '../config/routes'
 import * as ENDPOINTS from '../services/endpoints'
+import * as ROUTES from '../config/routes'
 
 import PageHeading from '../components/page-heading/PageHeading'
-import User from '../components/user/User'
 import SectionWrapper from '../components/wrappers/SectionWrapper'
+import ContactTabs from '../components/tabs/ContactTabs'
+import User from '../components/user/User'
+
+import BusinessForm from '../components/business-form'
+import PressForm from '../components/press-form'
+import JobsForm from '../components/jobs-form'
 
 const titles = [
   'contact:tabs:business',
   'contact:tabs:press',
   'contact:tabs:join',
 ]
+
 
 export default function Contact({
   metaHeading = {},
@@ -84,15 +91,7 @@ export default function Contact({
       <PageHeading title={title} description={description} />
       <section className="contact-wrapper">
         <SectionWrapper>
-          <div className="contact-message">
-            <p>
-              {t('contact:message-email')}{' '}
-              <a href="mailto:hi@mormedi.com" target="_blank">
-                hi@mormedi.com
-              </a>
-            </p>
-          </div>
-          {/* <ContactTabs
+          <ContactTabs
             titles={titles}
             selected={selected}
             onChangeTab={handleChangeTab}
@@ -102,7 +101,7 @@ export default function Contact({
                 'is-active': selected === 'contact:tabs:business',
               })}
             >
-              <BusinessForm />
+           <BusinessForm />
             </div>
             <div
               className={cx('contactTabs-content tabs-content', {
@@ -116,9 +115,9 @@ export default function Contact({
                 'is-active': selected === 'contact:tabs:join',
               })}
             >
-              <JobsForm />
+             <JobsForm />
             </div>
-          </ContactTabs> */}
+          </ContactTabs>
 
           <div className="contact-sidebar">
             <h3 className="contact-sidebar-title">

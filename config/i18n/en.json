@@ -37,13 +37,13 @@
   "home:main-loader": "The Foresight & Creation Company",
   "home:claim": "We uncover, imagine, and design for millions",
   "home:scroll": "Scroll down",
-  "home:title": "Our story",
-  "home:description": "We know that things move fast, that the world is getting complex and the future is blurry. That’s why we are here, as an independent, different and authentic design agency that is not afraid of the great challenges we face as organisations and society.<br/> We embrace complexity, we embrace uncertainty and we embrace change and we know that the future is created with good human centric ideas and technology as well with feelings and experiences. We know that the future is not a given destiny but a possibility, that’s why we are future makers, we will create the future that we want, the one that we deserve, the one that is meaningful, beautiful and sustainable.<br/>We do it by helping to identify and solve complex problems through a. multi-disciplinary, end-to-end process that blends deep wisdom and creativity, along a rigorous, inspiring and caring path.<br/>And we do it for you. To deliver possible and desirable futures in the shape of experiences that amaze and guide us towards a thriving and beautiful tomorrow",
-  "home:buttonLink": "/about",
-  "home:buttonLinkTitle": "Know more about us",
-  "home:wordsForesight": "Strategic Foresight",
-  "home:wordsStrategy": "Experience Strategy",
-  "home:wordsDesign": "Proposition Design",
+  "home:title" : "Our story",
+  "home:description" : "We know that things move fast, that the world is getting complex and the future is blurry. That’s why we are here, as an independent, different and authentic design agency that is not afraid of the great challenges we face as organisations and society.<br/> We embrace complexity, we embrace uncertainty and we embrace change and we know that the future is created with good human centric ideas and technology as well with feelings and experiences. We know that the future is not a given destiny but a possibility, that’s why we are future makers, we will create the future that we want, the one that we deserve, the one that is meaningful, beautiful and sustainable.<br/>We do it by helping to identify and solve complex problems through a. multi-disciplinary, end-to-end process that blends deep wisdom and creativity, along a rigorous, inspiring and caring path.<br/>And we do it for you. To deliver possible and desirable futures in the shape of experiences that amaze and guide us towards a thriving and beautiful tomorrow",
+  "home:buttonLink" : "/about",
+  "home:buttonLinkTitle" : "Know more about us",
+  "home:wordsForesight" : "Strategic Foresight",
+  "home:wordsStrategy" : "Experience Strategy",
+  "home:wordsDesign" : "Proposition Design",
   "home:project-title": "Feature projects",
   "client": "Client",
   "project": "Project",
@@ -132,6 +132,5 @@
   "footer:downloads-title": "Downloads",
   "footer:downloads-link": "https://www.mormedi.com/downloads",
   "footer:project-title": "Key Projects",
-  "footer:project-link": "https://www.mormedi.com/key-projects",
-  "contact:message-email": "If you want more information, please get in touch with us through"
+  "footer:project-link": "https://www.mormedi.com/key-projects"
 }
