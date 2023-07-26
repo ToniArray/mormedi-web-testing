@@ -1,31 +1,30 @@
 import { useState } from 'react'
 
+import cx from 'classnames'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
 
 import useTranslations from '../config/i18n/useTranslations'
 
 import { getSingle, sendEmail } from '../services/cms'
 
-import * as ENDPOINTS from '../services/endpoints'
 import * as ROUTES from '../config/routes'
+import * as ENDPOINTS from '../services/endpoints'
 
 import PageHeading from '../components/page-heading/PageHeading'
-import SectionWrapper from '../components/wrappers/SectionWrapper'
 import ContactTabs from '../components/tabs/ContactTabs'
 import User from '../components/user/User'
+import SectionWrapper from '../components/wrappers/SectionWrapper'
 
 import BusinessForm from '../components/business-form'
-import PressForm from '../components/press-form'
 import JobsForm from '../components/jobs-form'
+import PressForm from '../components/press-form'
 
 const titles = [
   'contact:tabs:business',
   'contact:tabs:press',
   'contact:tabs:join',
 ]
-
 
 export default function Contact({
   metaHeading = {},
@@ -91,33 +90,43 @@ export default function Contact({
       <PageHeading title={title} description={description} />
       <section className="contact-wrapper">
         <SectionWrapper>
-          <ContactTabs
-            titles={titles}
-            selected={selected}
-            onChangeTab={handleChangeTab}
-          >
-            <div
-              className={cx('contactTabs-content tabs-content', {
-                'is-active': selected === 'contact:tabs:business',
-              })}
+          <div className="contact-message">
+            <p>
+              {t('contact:message-email')}{' '}
+              <a href="mailto:hi@mormedi.com" target="_blank">
+                hi@mormedi.com
+              </a>
+            </p>
+          </div>
+          <div style={{ display: 'none' }}>
+            <ContactTabs
+              titles={titles}
+              selected={selected}
+              onChangeTab={handleChangeTab}
             >
-           <BusinessForm />
-            </div>
-            <div
-              className={cx('contactTabs-content tabs-content', {
-                'is-active': selected === 'contact:tabs:press',
-              })}
-            >
-              <PressForm />
-            </div>
-            <div
-              className={cx('contactTabs-content tabs-content', {
-                'is-active': selected === 'contact:tabs:join',
-              })}
-            >
-             <JobsForm />
-            </div>
-          </ContactTabs>
+              <div
+                className={cx('contactTabs-content tabs-content', {
+                  'is-active': selected === 'contact:tabs:business',
+                })}
+              >
+                <BusinessForm />
+              </div>
+              <div
+                className={cx('contactTabs-content tabs-content', {
+                  'is-active': selected === 'contact:tabs:press',
+                })}
+              >
+                <PressForm />
+              </div>
+              <div
+                className={cx('contactTabs-content tabs-content', {
+                  'is-active': selected === 'contact:tabs:join',
+                })}
+              >
+                <JobsForm />
+              </div>
+            </ContactTabs>
+          </div>
 
           <div className="contact-sidebar">
             <h3 className="contact-sidebar-title">
