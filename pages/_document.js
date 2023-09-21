@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
   render() {
@@ -37,75 +37,7 @@ export default class MyDocument extends Document {
             width="device-width"
             initial-scale="1.0"
           />
-          <link
-            rel="apple-touch-icon"
-            sizes="57x57"
-            href="https://mormedi.com/favicon/apple-icon-57x57.png"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="60x60"
-            href="https://mormedi.com/favicon/apple-icon-60x60.png"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="72x72"
-            href="https://mormedi.com/favicon/apple-icon-72x72.png"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="https://mormedi.com/favicon/apple-icon-76x76.png"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="114x114"
-            href="https://mormedi.com/favicon/apple-icon-114x114.png"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="120x120"
-            href="https://mormedi.com/favicon/apple-icon-120x120.png"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="144x144"
-            href="https://mormedi.com/favicon/apple-icon-144x144.png"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="152x152"
-            href="https://mormedi.com/favicon/apple-icon-152x152.png"
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="https://mormedi.com/favicon/apple-icon-180x180.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="192x192"
-            href="https://mormedi.com/favicon/android-icon-192x192.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="https://mormedi.com/favicon/favicon-16x16.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="https://mormedi.com/favicon/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="https://mormedi.com/favicon/favicon-96x96.png"
-          />
+          <link rel="icon" type="image/png" href="/favicon/favicon.png" />
 
           {/* Theme color */}
           <meta name="msapplication-TileColor" content="#ffffff" />
@@ -125,7 +57,7 @@ export default class MyDocument extends Document {
           <meta property="og:title" content="Mormedi" />
           <meta
             property="og:description"
-            content="Mormedi | The foresight and creation company"
+            content="Mormedi | Making tomorrow tangible"
           />
           <meta property="og:url" content="https://mormedi.com" />
           <meta property="og:site_name" content="Mormedi" />
@@ -154,12 +86,12 @@ export default class MyDocument extends Document {
           <meta name="twitter:site" content="@mormedi" />
           <meta
             name="twitter:description"
-            content="Mormedi | The foresight and creation company"
+            content="Mormedi | Making tomorrow tangible"
           />
           <meta name="twitter:image:alt" content="Mormedi" />
 
           {/* Meta robots */}
-          <meta name="robots" content={ process.env.NEXT_ROBOOT_IDEX } />
+          <meta name="robots" content={process.env.NEXT_ROBOOT_IDEX} />
         </Head>
         <body>
           <Main />

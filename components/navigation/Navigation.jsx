@@ -1,19 +1,19 @@
-import { useCallback, useState, useRef, useEffect } from 'react'
+import cx from 'classnames'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
-import useTranslations from '../../config/i18n/useTranslations'
 import useToggleLocales from '../../config/i18n/useToggleLocales'
+import useTranslations from '../../config/i18n/useTranslations'
+import { ABOUT, HOME } from '../../config/routes'
 import { useMainLoader } from '../../contexts/LoaderContext'
 import { useMainWrapper } from '../../contexts/MainWrapperContext'
-import { HOME, ABOUT } from '../../config/routes'
 
-import SectionWrapper from '../wrappers/SectionWrapper'
 import Link from '../link/Link'
+import SectionWrapper from '../wrappers/SectionWrapper'
 
-import Logo from '../../public/icons/logo-mormedi'
 import IconPlace from '../../public/icons/icon-place'
+import Logo from '../../public/icons/logo-mormedi'
 
 import BREADCRUMB from './breadcrumb'
 
