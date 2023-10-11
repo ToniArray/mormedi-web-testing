@@ -94,7 +94,7 @@ const AboutMap = ({ buttonText, to }) => {
               {t('about:map-branches')}
             </li>
             <li className="aboutMap-citiesList-city">{t('city:tokyo')}</li>
-            <li className="aboutMap-citiesList-city">{t('city:london')}</li>
+            {/* <li className="aboutMap-citiesList-city">{t('city:london')}</li> */}
             <li className="aboutMap-citiesList-city">{t('city:ny')}</li>
           </ul>
           <ul className="aboutMap-citiesList">
@@ -116,7 +116,7 @@ const AboutMap = ({ buttonText, to }) => {
             <li className="aboutMap-citiesList-city">Boston</li>
             <li className="aboutMap-citiesList-city">Sao Paulo</li>
             <li className="aboutMap-citiesList-city">Rio de Janeiro</li>
-            <li className="aboutMap-citiesList-city">{t('city:london')}</li>
+            {/* <li className="aboutMap-citiesList-city">{t('city:london')}</li> */}
             <li className="aboutMap-citiesList-city">{t('city:paris')}</li>
             <li className="aboutMap-citiesList-city">Rochefort</li>
             <li className="aboutMap-citiesList-city">Madrid</li>
