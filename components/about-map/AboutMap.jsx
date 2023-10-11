@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { SplitText } from 'gsap/dist/SplitText'
 import { SlowMo } from 'gsap/dist/EasePack'
+import { SplitText } from 'gsap/dist/SplitText'
+import { useEffect, useRef, useState } from 'react'
 
 import useTranslations from '../../config/i18n/useTranslations'
 import { useMainWrapper } from '../../contexts/MainWrapperContext'

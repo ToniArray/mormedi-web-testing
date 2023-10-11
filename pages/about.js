@@ -97,14 +97,9 @@ export default function About({
         />
       </Head>
 
-      {/* <PageHeading
+      <PageHeading
         title={pageHeading.title}
         description={pageHeading.description}
-      /> */}
-
-      <PageHeading
-        title={t('about-us:title')}
-        description={t('about-us:description')}
       />
 
       <AboutVideos videos={videos} />

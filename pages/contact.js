@@ -87,16 +87,23 @@ export default function Contact({
         />
       </Head>
 
-      {/* <PageHeading title={title} description={description} /> */}
-      <PageHeading title={title} description={t('contact:description')} />
+      <PageHeading title={title} description={description} />
       <section className="contact-wrapper">
         <SectionWrapper>
           <div className="contact-message">
             <p>
-              {t('contact:message-email')}{' '}
-              <a href="mailto:hi@mormedi.com" target="_blank">
-                hi@mormedi.com
-              </a>
+              {t('contact:message-email', {
+                email1: (
+                  <a href="mailto:hi@mormedi.com" target="_blank">
+                    hi@mormedi.com
+                  </a>
+                ),
+                email2: (
+                  <a href="jobs@mormedi.com" target="_blank">
+                    jobs@mormedi.com
+                  </a>
+                ),
+              })}
             </p>
           </div>
           <div style={{ display: 'none' }}>
