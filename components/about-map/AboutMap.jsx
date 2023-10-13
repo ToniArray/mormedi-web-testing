@@ -72,7 +72,7 @@ const AboutMap = ({ buttonText, to }) => {
         <h3 className="aboutMap-title" ref={titleRef}>
           {t('about:map')}
         </h3>
-        <div
+        {/* <div
           className="aboutMap-button"
           style={{ transform: `translate(${transform.x}px, ${transform.y}px)` }}
           ref={buttonRef}
@@ -80,7 +80,7 @@ const AboutMap = ({ buttonText, to }) => {
           <a className="aboutMap-buttonLink" href={to}>
             <span className="aboutMap-buttonText">{buttonText}</span>
           </a>
-        </div>
+        </div> */}
         <img className="aboutMap-map" src="/images/map.png" alt="Map" />
         <div className="aboutMap-cities">
           <ul className="aboutMap-citiesList">
