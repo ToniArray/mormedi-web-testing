@@ -1,23 +1,21 @@
-import React, { useRef } from 'react'
 import { useRouter } from 'next/router'
+import React, { useRef } from 'react'
 import * as ROUTES from '../config/routes'
-import emailjs from '@emailjs/browser'
 
 import useTranslations from '../config/i18n/useTranslations'
 
-import Input from '../components/input/Input'
-import PolicyAgreeCheckbox from '../components/checkbox/PolicyAgreeCheckbox'
 import Button from '../components/button/Button'
+import PolicyAgreeCheckbox from '../components/checkbox/PolicyAgreeCheckbox'
+import Input from '../components/input/Input'
 
 const BusinessForm = ({ buttons, descriptions }) => {
   const YOUR_SERVICE_ID = 'service_1tu0da7'
   const YOUR_TEMPLATE_ID = 'template_boi9x4u'
   const YOUR_PUBLIC_KEY = 'XaXi12p230JfJqZgB'
-  
+
   const router = useRouter()
   const t = useTranslations()
-  const form = useRef();
-
+  const form = useRef()
 
   const handleSubmit = async ev => {
     ev.preventDefault()
@@ -56,7 +54,12 @@ const BusinessForm = ({ buttons, descriptions }) => {
 
   return (
     <>
-      <form  ref={form} className="contact-form" id="business-form" onSubmit={handleSubmit}>
+      <form
+        ref={form}
+        className="contact-form"
+        id="business-form"
+        onSubmit={handleSubmit}
+      >
         <label className="label">{`* ${t('contact:required-fields')}`}</label>
         <div className="contact-form-content">
           <fieldset className="contact-fieldset">
@@ -79,7 +82,7 @@ const BusinessForm = ({ buttons, descriptions }) => {
                 <option value="Madrid">Madrid</option>
                 <option value="Tokio">Tokio</option>
                 <option value="Mexico City">Mexico City</option>
-                <option value="London">London</option>
+                {/* <option value="London">London</option> */}
               </select>
               <label>{`${t('contact:select-office')}*`}</label>
             </div>

@@ -1,8 +1,8 @@
-import { useState, useCallback } from 'react'
 import Head from 'next/head'
+import { useCallback, useState } from 'react'
 import showdown from 'showdown'
 
-import AboutClaim from '../components/about-claim/AboutClaim'
+// import AboutClaim from '../components/about-claim/AboutClaim'
 import AboutMap from '../components/about-map/AboutMap'
 import AboutSuccess from '../components/about-success/AboutSuccess'
 import AboutVideos from '../components/about-videos/AboutVideos'
@@ -11,13 +11,13 @@ import PageHeading from '../components/page-heading/PageHeading'
 import useTranslations from '../config/i18n/useTranslations'
 import { getSingle } from '../services/cms'
 
-import * as ENDPOINTS from '../services/endpoints'
 import * as ROUTES from '../config/routes'
+import * as ENDPOINTS from '../services/endpoints'
 
-import AboutExperts from '../components/about-experts/AboutExperts'
-import AboutPartners from '../components/about-partners/AboutPartners'
 import AboutAwards from '../components/about-awards/AboutAwards'
+import AboutExperts from '../components/about-experts/AboutExperts'
 import AboutModal from '../components/about-modal/AboutModal'
+import AboutPartners from '../components/about-partners/AboutPartners'
 
 const EMPTY_PERSON = {
   name: '',
@@ -80,8 +80,17 @@ export default function About({
   return (
     <>
       <Head>
-        <title>{metaHeading ? metaHeading.metaTitle : t('seo:about-title')}</title>
-        <meta name="description" content={metaHeading ? metaHeading.metaDescription : t('seo:about-description')} />
+        <title>
+          {metaHeading ? metaHeading.metaTitle : t('seo:about-title')}
+        </title>
+        <meta
+          name="description"
+          content={
+            metaHeading
+              ? metaHeading.metaDescription
+              : t('seo:about-description')
+          }
+        />
         <link
           rel="canonical"
           href={`${process.env.NEXT_PUBLIC_SITE_URL}${ROUTES.ABOUT.path}`}
@@ -95,7 +104,7 @@ export default function About({
 
       <AboutVideos videos={videos} />
 
-      <AboutClaim title={caption.title} description={caption.description} />
+      {/* <AboutClaim title={caption.title} description={caption.description} /> */}
 
       <AboutMap buttonText={worldButton.title} to={worldButton.link} />
 

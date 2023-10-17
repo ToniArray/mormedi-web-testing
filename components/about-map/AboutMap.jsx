@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { SplitText } from 'gsap/dist/SplitText'
 import { SlowMo } from 'gsap/dist/EasePack'
+import { SplitText } from 'gsap/dist/SplitText'
+import { useEffect, useRef, useState } from 'react'
 
 import useTranslations from '../../config/i18n/useTranslations'
 import { useMainWrapper } from '../../contexts/MainWrapperContext'
@@ -72,7 +72,7 @@ const AboutMap = ({ buttonText, to }) => {
         <h3 className="aboutMap-title" ref={titleRef}>
           {t('about:map')}
         </h3>
-        <div
+        {/* <div
           className="aboutMap-button"
           style={{ transform: `translate(${transform.x}px, ${transform.y}px)` }}
           ref={buttonRef}
@@ -80,7 +80,7 @@ const AboutMap = ({ buttonText, to }) => {
           <a className="aboutMap-buttonLink" href={to}>
             <span className="aboutMap-buttonText">{buttonText}</span>
           </a>
-        </div>
+        </div> */}
         <img className="aboutMap-map" src="/images/map.png" alt="Map" />
         <div className="aboutMap-cities">
           <ul className="aboutMap-citiesList">
@@ -94,7 +94,7 @@ const AboutMap = ({ buttonText, to }) => {
               {t('about:map-branches')}
             </li>
             <li className="aboutMap-citiesList-city">{t('city:tokyo')}</li>
-            <li className="aboutMap-citiesList-city">{t('city:london')}</li>
+            {/* <li className="aboutMap-citiesList-city">{t('city:london')}</li> */}
             <li className="aboutMap-citiesList-city">{t('city:ny')}</li>
           </ul>
           <ul className="aboutMap-citiesList">
@@ -116,7 +116,7 @@ const AboutMap = ({ buttonText, to }) => {
             <li className="aboutMap-citiesList-city">Boston</li>
             <li className="aboutMap-citiesList-city">Sao Paulo</li>
             <li className="aboutMap-citiesList-city">Rio de Janeiro</li>
-            <li className="aboutMap-citiesList-city">{t('city:london')}</li>
+            {/* <li className="aboutMap-citiesList-city">{t('city:london')}</li> */}
             <li className="aboutMap-citiesList-city">{t('city:paris')}</li>
             <li className="aboutMap-citiesList-city">Rochefort</li>
             <li className="aboutMap-citiesList-city">Madrid</li>

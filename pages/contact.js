@@ -92,10 +92,18 @@ export default function Contact({
         <SectionWrapper>
           <div className="contact-message">
             <p>
-              {t('contact:message-email')}{' '}
-              <a href="mailto:hi@mormedi.com" target="_blank">
-                hi@mormedi.com
-              </a>
+              {t('contact:message-email', {
+                email1: (
+                  <a href="mailto:hi@mormedi.com" target="_blank">
+                    hi@mormedi.com
+                  </a>
+                ),
+                email2: (
+                  <a href="jobs@mormedi.com" target="_blank">
+                    jobs@mormedi.com
+                  </a>
+                ),
+              })}
             </p>
           </div>
           <div style={{ display: 'none' }}>

@@ -1,16 +1,21 @@
-import { useState } from 'react'
 import Head from 'next/head'
+import { useState } from 'react'
 
 import useTranslations from '../config/i18n/useTranslations'
 
+import * as ROUTES from '../config/routes'
 import { getSingle } from '../services/cms'
 import * as ENDPOINTS from '../services/endpoints'
-import * as ROUTES from '../config/routes'
 
 import PageHeading from '../components/page-heading/PageHeading'
 import WhatWeDo from '../components/what-we-do/WhatWeDo'
 
-export default function WhatWeDoPage({ metaHeading = {}, pageHeading = {}, people, services }) {
+export default function WhatWeDoPage({
+  metaHeading = {},
+  pageHeading = {},
+  people,
+  services,
+}) {
   const t = useTranslations()
   const [videoLanguage, setVideoLanguage] = useState('spanish')
 
@@ -23,8 +28,17 @@ export default function WhatWeDoPage({ metaHeading = {}, pageHeading = {}, peopl
   return (
     <>
       <Head>
-        <title>{metaHeading ? metaHeading.metaTitle : t('seo:what-we-do-title')}</title>
-        <meta name="description" content={metaHeading ? metaHeading.metaDescription : t('seo:what-we-do-description')} />
+        <title>
+          {metaHeading ? metaHeading.metaTitle : t('seo:what-we-do-title')}
+        </title>
+        <meta
+          name="description"
+          content={
+            metaHeading
+              ? metaHeading.metaDescription
+              : t('seo:what-we-do-description')
+          }
+        />
         <link
           rel="canonical"
           href={`${process.env.NEXT_PUBLIC_SITE_URL}${ROUTES.WHAT_WE_DO.path}`}

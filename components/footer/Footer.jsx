@@ -1,22 +1,22 @@
-import { useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
-import showdown from 'showdown'
 import gsap from 'gsap'
-import { SplitText } from 'gsap/dist/SplitText'
 import { SlowMo } from 'gsap/dist/EasePack'
+import { SplitText } from 'gsap/dist/SplitText'
+import PropTypes from 'prop-types'
+import { useEffect, useRef } from 'react'
+import showdown from 'showdown'
 
-import useTranslations from '../../config/i18n/useTranslations'
 import useToggleLocales from '../../config/i18n/useToggleLocales'
+import useTranslations from '../../config/i18n/useTranslations'
 import { useMainWrapper } from '../../contexts/MainWrapperContext'
 import { useNewsletter } from '../../contexts/NewsletterContext'
 
-import SectionWrapper from '../wrappers/SectionWrapper'
-import Link from '../link/Link'
 import ArrowLinkBig from '../arrow-link/ArrowLinkBig'
+import Link from '../link/Link'
+import SectionWrapper from '../wrappers/SectionWrapper'
 
-import IconPlace from '../../public/icons/icon-place'
 import IconArrow from '../../public/icons/icon-arrow'
+import IconPlace from '../../public/icons/icon-place'
 
 const Footer = ({ isNegative, title, cities }) => {
   const containerRef = useRef(null)
@@ -28,6 +28,8 @@ const Footer = ({ isNegative, title, cities }) => {
   const { activeLocale, locales, setLocale } = useToggleLocales()
   const { mainWrapperRef } = useMainWrapper()
   const { open: openNewsletter } = useNewsletter()
+
+  const any = new Date().getFullYear()
 
   useEffect(() => {
     const container = containerRef.current
@@ -60,7 +62,7 @@ const Footer = ({ isNegative, title, cities }) => {
     {
       title: t('footer:project-title'),
       link: t('footer:project-link'),
-    }
+    },
   ]
 
   return (
@@ -136,7 +138,7 @@ const Footer = ({ isNegative, title, cities }) => {
             ))}
           </div>
           <p className="footer-legal">
-            © Mormedi 2022.
+            © Mormedi {any}.
             <Link to="/legal" title="Legal">
               {t('legal')}
             </Link>

@@ -24,7 +24,7 @@
   "seo:downloads-title": "Descargas - Mormedi",
   "seo:download-title": "{download} - Descargas - Mormedi",
   "seo:home-title": "Mormedi",
-  "seo:home-description": "Mormedi | The foresight and creation company.",
+  "seo:home-description": "Mormedi | Haciendo tangible el mañana.",
   "seo:insights-title": "Reflexiones - Mormedi",
   "seo:key-projects-title": "Proyectos clave - Mormedi",
   "seo:legal-title": "Legal - Mormedi",
@@ -34,8 +34,8 @@
   "seo:trend-talks": "Trend talks - Mormedi",
   "seo:works-title": "Trabajos - Mormedi",
 
-  "home:hero-text": "Somos Mormedi, una compañía \"future-making\" que inspira a los negocios a cuidar y liderar el futuro",
-  "home:main-loader": "The Foresight & Creation Company",
+  "home:hero-text": "Somos una consultora boutique global de diseño estratégico e innovación.",
+  "home:main-loader": "Making tomorrow tangible",
   "home:claim": "Descubrimos, imaginamos y diseñamos para millones de personas.",
   "home:scroll": "Scroll down",
   "home:title": "Nuestra historia",
@@ -135,5 +135,7 @@
   "footer:downloads-link": "https://www.mormedi.com/downloads",
   "footer:project-title": "Proyectos clave",
   "footer:project-link": "https://www.mormedi.com/es/key-projects",
-  "contact:message-email": "Si quieres más información, por favor ponte en contacto con nosotros a través de"
+  "contact:message-email": "Si quieres más información, por favor ponte en contacto con nosotros a través de {email1} o envíanos tu porfolio a {email2}",
+  "about-us:title": "Colaboramos con líderes como tu para crear un mañana mejor.",
+  "about-us:description": "Más de 25 años de profunda experiencia intersectorial\n\nCreando trabajos galardonados con las mejores marcas del mundo\n\nEnfoque exhaustivo y sistemático que conduce a resultados en el mundo real"
 }
