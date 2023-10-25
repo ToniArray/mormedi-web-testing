@@ -264,6 +264,16 @@ const Navigation = ({ isNegative, cities = [] }) => {
                   {t('key-projects')}
                 </Link>
               </li>
+              <li>
+                <Link
+                  classes="navigation-footer-link"
+                  handleClick={toggleState}
+                  to="https://www.careers-page.com/mormedi"
+                  title={t('jobs')}
+                >
+                  {t('jobs')}
+                </Link>
+              </li>
             </ul>
             <div className="navigation-footer-languages">
               {locales.map(locale => (

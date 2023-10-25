@@ -97,6 +97,17 @@ const Footer = ({ isNegative, title, cities }) => {
                 <span className="arrowLinkBig-text">{t('newsletter')}</span>
               </button>
             </li>
+            <li>
+              <a
+                className="arrowLinkBig"
+                href="https://www.careers-page.com/mormedi"
+              >
+                <div className="arrowLinkBig-arrowContainer">
+                  <IconArrow classes="arrowLinkBig-arrow" />
+                </div>
+                <span className="arrowLinkBig-text">{t('jobs')}</span>
+              </a>
+            </li>
           </ul>
         ) : null}
         {cities ? (
