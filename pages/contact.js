@@ -99,7 +99,10 @@ export default function Contact({
                   </a>
                 ),
                 link: (
-                  <a href="jobs@mormedi.com" target="_blank">
+                  <a
+                    href="https://www.careers-page.com/mormedi"
+                    target="_blank"
+                  >
                     {t('contact:literal-link')}
                   </a>
                 ),
