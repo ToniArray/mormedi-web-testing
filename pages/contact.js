@@ -98,9 +98,9 @@ export default function Contact({
                     hi@mormedi.com
                   </a>
                 ),
-                email2: (
+                link: (
                   <a href="jobs@mormedi.com" target="_blank">
-                    jobs@mormedi.com
+                    {t('contact:literal-link')}
                   </a>
                 ),
               })}

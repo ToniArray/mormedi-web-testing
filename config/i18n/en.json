@@ -133,7 +133,8 @@
   "footer:downloads-link": "https://www.mormedi.com/downloads",
   "footer:project-title": "Key Projects",
   "footer:project-link": "https://www.mormedi.com/key-projects",
-  "contact:message-email": "If you want more information, please get in touch with us through {email1} or send us your portfolio to {email2}",
+  "contact:message-email": "If you want more information, please get in touch with us through {email1} or send us your portfolio through this {link}",
+  "contact:literal-link": "link",
   "about-us:title": "Partnering with leaders like you to create a better tomorrow.",
   "about-us:description": "Deep, cross-sector experience for over 25 years\n\nCreating award winning work with the world's best brands\n\nThorough, systematic approach that leads to real world results"
 }
