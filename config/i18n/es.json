@@ -82,6 +82,7 @@
   "contact": "Contacto",
   "downloads": "Descargas",
   "key-projects": "Proyectos clave",
+  "jobs": "Trabaja con nosotros",
   "future-talks": "Trend talks",
   "newsletter": "Newsletter",
   "legal": "Legal",
@@ -135,7 +136,8 @@
   "footer:downloads-link": "https://www.mormedi.com/downloads",
   "footer:project-title": "Proyectos clave",
   "footer:project-link": "https://www.mormedi.com/es/key-projects",
-  "contact:message-email": "Si quieres más información, por favor ponte en contacto con nosotros a través de {email1} o envíanos tu porfolio a {email2}",
+  "contact:message-email": "Si quieres más información, por favor ponte en contacto con nosotros a través de {email1} o envíanos tu porfolio a través de este {link}",
+  "contact:literal-link": "enlace",
   "about-us:title": "Colaboramos con líderes como tu para crear un mañana mejor.",
   "about-us:description": "Más de 25 años de profunda experiencia intersectorial\n\nCreando trabajos galardonados con las mejores marcas del mundo\n\nEnfoque exhaustivo y sistemático que conduce a resultados en el mundo real"
 }
