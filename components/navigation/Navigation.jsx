@@ -241,7 +241,7 @@ const Navigation = ({ isNegative, cities = [] }) => {
                   LinkedIn
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   className="navigation-footer-link"
                   href="https://open.spotify.com/show/67cvAfWVFS7hnVSZYWiwpg"
@@ -251,7 +251,7 @@ const Navigation = ({ isNegative, cities = [] }) => {
                 >
                   Spotify
                 </a>
-              </li>
+              </li> */}
             </ul>
             <ul className="navigation-footer-pages">
               <li>
