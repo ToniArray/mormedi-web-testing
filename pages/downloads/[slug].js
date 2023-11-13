@@ -4,6 +4,7 @@ import showdown from 'showdown'
 
 import useTranslations from '../../config/i18n/useTranslations'
 
+import * as ROUTES from '../../config/routes'
 import {
   findById,
   findBySlug,
@@ -11,11 +12,9 @@ import {
   SWITCH_LANGS,
 } from '../../services/cms'
 import * as ENDPOINTS from '../../services/endpoints'
-import * as ROUTES from '../../config/routes'
 
-import SectionWrapper from '../../components/wrappers/SectionWrapper'
 import BackButton from '../../components/back-button/BackButton'
-import DownloadForm from '../../components/downloads/DownloadForm'
+import SectionWrapper from '../../components/wrappers/SectionWrapper'
 
 export default function Download({ pageData }) {
   const { title = '', description = '', image = '' } = pageData || {}
@@ -66,7 +65,7 @@ export default function Download({ pageData }) {
 
       <BackButton />
 
-      <DownloadForm title={title} onFormSubmit={handleSubmit} />
+      {/* <DownloadForm title={title} onFormSubmit={handleSubmit} /> */}
     </>
   )
 }
