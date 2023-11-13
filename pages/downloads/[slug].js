@@ -58,7 +58,7 @@ export default function Download({ pageData }) {
                 __html: converter.makeHtml(description),
               }}
             ></div>
-            <img src={image.url} alt={image.name} />
+            {/* <img src={image.url} alt={image.name} /> */}
           </div>
         </SectionWrapper>
       </div>
